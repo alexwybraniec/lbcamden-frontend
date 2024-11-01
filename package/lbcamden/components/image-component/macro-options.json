@@ -1,0 +1,14 @@
+[
+    {
+        "name": "image",
+        "type": "object",
+        "required": true,
+        "description": "Image configuration as per LBCamden image component with confined ratio"
+    },
+    {
+        "name": "caption",
+        "type": "string",
+        "required": false,
+        "description": "Caption for the image"
+    }
+]

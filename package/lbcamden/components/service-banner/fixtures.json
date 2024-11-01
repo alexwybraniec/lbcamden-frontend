@@ -7,7 +7,7 @@
                 "heading": "Council Tax and benefit forms unavailable",
                 "shortDescription": "<p>Council Tax and housing benefit application forms are unavailable this evening between 6pm and 9pm. Try again after this time.</p>"
             },
-            "html": "<section role=\"banner\" class=\"lbcamden-service-banner \">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-grid-row\">\n      <div class=\"govuk-grid-column-two-thirds\">\n        <h2 class=\"\">Council Tax and benefit forms unavailable</h2>\n\n        <p>Council Tax and housing benefit application forms are unavailable this evening between 6pm and 9pm. Try again after this time.</p>\n      </div>\n    </div>\n  </div>\n</section>",
+            "html": "<div class=\"lbcamden-service-banner \">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-grid-row\">\n      <div class=\"govuk-grid-column-two-thirds\">\n        <h2 class=\"\">Council Tax and benefit forms unavailable</h2>\n\n        <p>Council Tax and housing benefit application forms are unavailable this evening between 6pm and 9pm. Try again after this time.</p>\n      </div>\n    </div>\n  </div>\n</div>",
             "hidden": false
         },
         {
@@ -15,7 +15,7 @@
             "options": {
                 "classes": "app-service-banner--custom-modifier"
             },
-            "html": "<section role=\"banner\" class=\"lbcamden-service-banner app-service-banner--custom-modifier\">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-grid-row\">\n      <div class=\"govuk-grid-column-two-thirds\">\n        <h2 class=\"\"></h2>\n\n        \n      </div>\n    </div>\n  </div>\n</section>",
+            "html": "<div class=\"lbcamden-service-banner app-service-banner--custom-modifier\">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-grid-row\">\n      <div class=\"govuk-grid-column-two-thirds\">\n        <h2 class=\"\"></h2>\n\n        \n      </div>\n    </div>\n  </div>\n</div>",
             "hidden": true
         }
     ]

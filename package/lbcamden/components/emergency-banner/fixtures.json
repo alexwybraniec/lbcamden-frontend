@@ -10,7 +10,7 @@
                 "link": "https://www.gov.uk/",
                 "linkText": "Override Link Text"
             },
-            "html": "<section role=\"banner\" class=\"lbcamden-emergency-banner lbcamden-emergency-banner--notable-death  \">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-grid-row\">\n      <div class=\"govuk-grid-column-two-thirds lbcamden-emergency-banner__content\">\n        <h2 class=\"\">His Royal Highness Henry VIII</h2>\n\n        \n          <p> 1491–1547</p>\n        \n\n        \n          <a href=\"https://www.gov.uk/\">\n            Override Link Text\n          </a>\n        \n      </div>\n    </div>\n  </div>\n</section>",
+            "html": "<div class=\"lbcamden-emergency-banner lbcamden-emergency-banner--notable-death  \">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-grid-row\">\n      <div class=\"govuk-grid-column-two-thirds lbcamden-emergency-banner__content\">\n        <h2 class=\"\">His Royal Highness Henry VIII</h2>\n\n        \n          <p> 1491–1547</p>\n        \n\n        \n          <a href=\"https://www.gov.uk/\">\n            Override Link Text\n          </a>\n        \n      </div>\n    </div>\n  </div>\n</div>",
             "hidden": false
         },
         {
@@ -23,7 +23,7 @@
                 "link": "https://www.gov.uk/",
                 "linkText": "Override Link Text"
             },
-            "html": "<section role=\"banner\" class=\"lbcamden-emergency-banner lbcamden-emergency-banner--notable-death lbcamden-emergency-banner--homepage \">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-grid-row\">\n      <div class=\"govuk-grid-column-two-thirds lbcamden-emergency-banner__content\">\n        <h2 class=\"\">His Royal Highness Henry VIII</h2>\n\n        \n          <p> 1491–1547</p>\n        \n\n        \n          <a href=\"https://www.gov.uk/\">\n            Override Link Text\n          </a>\n        \n      </div>\n    </div>\n  </div>\n</section>",
+            "html": "<div class=\"lbcamden-emergency-banner lbcamden-emergency-banner--notable-death lbcamden-emergency-banner--homepage \">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-grid-row\">\n      <div class=\"govuk-grid-column-two-thirds lbcamden-emergency-banner__content\">\n        <h2 class=\"\">His Royal Highness Henry VIII</h2>\n\n        \n          <p> 1491–1547</p>\n        \n\n        \n          <a href=\"https://www.gov.uk/\">\n            Override Link Text\n          </a>\n        \n      </div>\n    </div>\n  </div>\n</div>",
             "hidden": false
         },
         {
@@ -35,7 +35,7 @@
                 "link": "https://www.gov.uk/",
                 "linkText": "Override Link Text"
             },
-            "html": "<section role=\"banner\" class=\"lbcamden-emergency-banner lbcamden-emergency-banner--national-emergency-banner  \">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-grid-row\">\n      <div class=\"govuk-grid-column-two-thirds lbcamden-emergency-banner__content\">\n        <h2 class=\"\">National emergency-banner</h2>\n\n        \n          <p>This is a level 1 incident </p>\n        \n\n        \n          <a href=\"https://www.gov.uk/\">\n            Override Link Text\n          </a>\n        \n      </div>\n    </div>\n  </div>\n</section>",
+            "html": "<div class=\"lbcamden-emergency-banner lbcamden-emergency-banner--national-emergency-banner  \">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-grid-row\">\n      <div class=\"govuk-grid-column-two-thirds lbcamden-emergency-banner__content\">\n        <h2 class=\"\">National emergency-banner</h2>\n\n        \n          <p>This is a level 1 incident </p>\n        \n\n        \n          <a href=\"https://www.gov.uk/\">\n            Override Link Text\n          </a>\n        \n      </div>\n    </div>\n  </div>\n</div>",
             "hidden": false
         },
         {
@@ -47,7 +47,7 @@
                 "link": "https://www.gov.uk/",
                 "linkText": "Override Link Text"
             },
-            "html": "<section role=\"banner\" class=\"lbcamden-emergency-banner lbcamden-emergency-banner--local-emergency-banner  \">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-grid-row\">\n      <div class=\"govuk-grid-column-two-thirds lbcamden-emergency-banner__content\">\n        <h2 class=\"\">Local emergency-banner</h2>\n\n        \n          <p> This is a level 2 incident </p>\n        \n\n        \n          <a href=\"https://www.gov.uk/\">\n            Override Link Text\n          </a>\n        \n      </div>\n    </div>\n  </div>\n</section>",
+            "html": "<div class=\"lbcamden-emergency-banner lbcamden-emergency-banner--local-emergency-banner  \">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-grid-row\">\n      <div class=\"govuk-grid-column-two-thirds lbcamden-emergency-banner__content\">\n        <h2 class=\"\">Local emergency-banner</h2>\n\n        \n          <p> This is a level 2 incident </p>\n        \n\n        \n          <a href=\"https://www.gov.uk/\">\n            Override Link Text\n          </a>\n        \n      </div>\n    </div>\n  </div>\n</div>",
             "hidden": false
         },
         {
@@ -55,7 +55,7 @@
             "options": {
                 "classes": "app-emergency-banner--custom-modifier"
             },
-            "html": "<section role=\"banner\" class=\"lbcamden-emergency-banner lbcamden-emergency-banner--  app-emergency-banner--custom-modifier\">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-grid-row\">\n      <div class=\"govuk-grid-column-two-thirds lbcamden-emergency-banner__content\">\n        <h2 class=\"\"></h2>\n\n        \n\n        \n      </div>\n    </div>\n  </div>\n</section>",
+            "html": "<div class=\"lbcamden-emergency-banner lbcamden-emergency-banner--  app-emergency-banner--custom-modifier\">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-grid-row\">\n      <div class=\"govuk-grid-column-two-thirds lbcamden-emergency-banner__content\">\n        <h2 class=\"\"></h2>\n\n        \n\n        \n      </div>\n    </div>\n  </div>\n</div>",
             "hidden": true
         }
     ]

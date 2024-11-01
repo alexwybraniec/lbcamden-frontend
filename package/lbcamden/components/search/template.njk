@@ -1,33 +1,34 @@
 {%- if params.classes %}
   {% set classNames = classNames + " " + params.classes %}
 {% endif %}
-
-<form 
+<search>
+<form
   class="lbcamden-search {{ classNames }} {% if params.alt %} lbcamden-search--alt{% endif %}"
   action="{{ params.action | default('/search') }}"
   method="{{ params.method | default('get')}}"
-  autocomplete="off"
-  role="search">
+  autocomplete="off">
   <label
     class="govuk-label govuk-label--l govuk-visually-hidden"
     for="lbcamden-search__box">
       {{ params.labelText | default('Search Camden.gov.uk') }}
   </label>
-  <input 
-    type="text" 
+  <input
+    type="text"
     name="{{ params.name | default('search') }}"
     class="lbcamden-search__input"
     value="{{ params.value }}"
-    id="lbcamden-search__box" {% if params.placeholderText %}placeholder="{{ params.placeholderText }}"{% endif %} />
+    id="lbcamden-search__box" {% if params.placeholderText %}placeholder="{{ params.placeholderText }}"{% endif %}
+    {% if params.resultsCountId %}aria-describedby="{{ params.resultsCountId }}"{% endif %} />
     {% if params.additionalParameters %}
       {% for name, value in params.additionalParameters %}
         <input type="hidden" name="{{ name }}" value="{{ value }}">
       {% endfor %}
     {% endif %}
-  <button 
+  <button
     type="submit"
     class="lbcamden-search__btn"
     id="lbcamden-search__btn">
       {{ params.labelText | default('Search Camden.gov.uk') }}
   </button>
 </form>
+</search>

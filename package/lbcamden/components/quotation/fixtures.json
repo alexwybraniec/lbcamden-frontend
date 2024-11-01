@@ -1,0 +1,15 @@
+{
+    "component": "quotation",
+    "fixtures": [
+        {
+            "name": "default",
+            "options": {
+                "colour": "orange",
+                "text": "We provide services and information for residents, businesses and visitors to the London Borough of Camden.",
+                "attribution": "Camden Council"
+            },
+            "html": "<div class=\"lbcamden-quotation orange\">\n    <svg viewBox=\"0 0 80 58\"\n         width=\"80\"\n         height=\"58\"\n         xmlns=\"http://www.w3.org/2000/svg\">\n        <path class=\"lbcamden-quotation-mark\" d=\"M61.6277 58C71.716 58 79.9065 49.7285 79.9065 39.7629C79.9065 30.7938 73.414 23.3196 64.9239 21.8247C68.1202 15.945 72.9146 9.86595 79.4071 3.48794C80.0064 2.89 80.1063 2.09275 79.9065 1.29549C79.6069 0.5979 78.9077 0.0996207 78.0087 0.0996206C58.5313 0.0996189 43.4488 21.4261 43.4488 39.7629C43.5487 44.8453 45.5464 49.3299 48.8426 52.6186C52.0389 55.9072 56.5336 58 61.6277 58Z\" />\n        <path class=\"lbcamden-quotation-mark\" d=\"M18.2787 57.9004C28.3669 57.9004 36.5574 49.7286 36.5574 39.6633C36.5574 30.6942 29.9651 23.22 21.4749 21.7251C24.6712 15.8454 29.4657 9.76634 35.9581 3.38833C36.5574 2.79039 36.7572 1.99314 36.4576 1.19588C36.1579 0.498291 35.4587 1.1345e-05 34.6596 1.12753e-05C14.9825 -0.0996456 -0.000111227 21.2268 -0.000112843 39.6633C-0.000113716 49.6289 8.19038 57.9004 18.2787 57.9004Z\" />\n    </svg>\n    <div class=\"lbcamden-quotation-text\">\n        <p>We provide services and information for residents, businesses and visitors to the London Borough of Camden.</p>\n        <p class=\"lbcamden-quotation-attribution\">Camden Council</p>\n    </div>\n</div>",
+            "hidden": false
+        }
+    ]
+}

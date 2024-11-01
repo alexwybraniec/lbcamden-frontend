@@ -1,0 +1,60 @@
+.lbcamden-campaign-promo-gallery {
+  &__card-grid {
+    @extend .lbcamden-card-grid;
+
+    @include govuk-media-query("mobile-large") {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include govuk-media-query("wide") {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  &__card {
+    @extend .lbcamden-card--alt-1;
+
+    @include govuk-responsive-padding(2, "top");
+    @include govuk-responsive-padding(2, "bottom");
+    @include govuk-responsive-padding(3, "left");
+    @include govuk-responsive-padding(3, "right");
+
+    display: -ms-flexbox;
+
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-align: center;
+        align-items: center;
+    background-color: lbcamden-color(govuk-bg-bright1-colour);
+
+    img {
+      @include govuk-responsive-margin(3, "right");
+      width: 56px;
+      height: auto;
+    }
+
+    a {
+      @include govuk-typography-responsive(24);
+      font-weight: 600;
+      line-height: 116.667%;
+
+      &:not(:focus):not(:hover) {
+        text-decoration: none;
+      }
+
+      &:hover:not(:focus) {
+        text-decoration-thickness: 2px;
+      }
+
+      &:focus {
+        text-underline-offset: initial;
+      }
+    }
+  }
+
+  &__label {
+    -ms-flex-positive: 1;
+        flex-grow: 1;
+  }
+}

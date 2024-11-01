@@ -42,4 +42,6 @@ exports.nodeListForEach = nodeListForEach;
 exports.generateUniqueID = generateUniqueID;
 exports.settings = settings;
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 })));

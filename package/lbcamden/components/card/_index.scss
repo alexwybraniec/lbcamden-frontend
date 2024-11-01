@@ -271,9 +271,7 @@
       width: initial;
     }
 
-    -webkit-column-gap: govuk-spacing($lbc-default-spacing);
-
-            column-gap: govuk-spacing($lbc-default-spacing);
+    column-gap: govuk-spacing($lbc-default-spacing);
     row-gap: govuk-spacing($lbc-default-spacing);
   }
 

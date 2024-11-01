@@ -1,0 +1,18 @@
+{% if "youtube" == params.platform %}
+    <div class="lbcamden-video-embed">
+        <iframe title="{{ params.frameTitle }}" src="https://www.youtube-nocookie.com/embed/{{ params.id }}?rel=0&showinfo=0&cc_lang_pref=en&cc_load_policy=1&playsinline=1"
+                frameborder="0"
+                rel="0"
+                allowfullscreen>
+        </iframe>
+    </div>
+{% elif "vimeo" == params.platform %}
+    <div class="lbcamden-video-embed">
+        <iframe title="{{ params.frameTitle }}" src="https://player.vimeo.com/video/{{ params.id }}"
+                frameborder="0"
+                controls="0"
+                allow="fullscreen; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+    </div>
+{% endif %}

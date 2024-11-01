@@ -113,6 +113,46 @@ $govuk-typography-scale: map-merge(
         line-height: 1.2,
       ),
     ),
+    "48-campaign":
+    (null: (
+      font-size: 48px,
+      line-height: 53px,
+    ),
+    tablet: (
+      font-size: 58px,
+      line-height: 64px,
+    ),
+    print: (
+      font-size: 48px,
+      line-height: 51px,
+    ),),
+    "36-campaign":
+    (null: (
+      font-size: 36px,
+      line-height: 42px,
+    ),
+    tablet: (
+      font-size: 44px,
+      line-height: 52px,
+    ),
+    print: (
+      font-size: 36px,
+      line-height: 42px,
+    ),),
+    "18-campaign": (
+      null: (
+        font-size: 18px,
+        line-height: 23px,
+      ),
+      tablet: (
+        font-size: 24px,
+        line-height: 30px,
+      ),
+      print: (
+        font-size: 24px,
+        line-height: 23px,
+      ),
+    ),
   ),
   $govuk-typography-scale
 );

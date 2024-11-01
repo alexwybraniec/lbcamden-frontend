@@ -1,0 +1,9 @@
+{% from "../image/macro.njk" import LBCamdenImage %}
+{% if not params.caption or not params.caption | trim %}
+    <div class="lbcamden-image-component">{{ LBCamdenImage(params.image) }}</div>
+{% else %}
+    <figure class="lbcamden-image-component">
+        {{ LBCamdenImage(params.image) }}
+        <figcaption class="lbcamden-image-component__caption">{{ params.caption | safe }}</figcaption>
+    </figure>
+{% endif %}

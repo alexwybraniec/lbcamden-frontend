@@ -1,0 +1,20 @@
+[
+    {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Title displayed in the component"
+    },
+    {
+        "name": "extract",
+        "type": "string",
+        "required": false,
+        "description": "Extract displayed in the component§"
+    },
+    {
+        "name": "image",
+        "type": "object",
+        "required": true,
+        "description": "Image configuration as per LBCamden image component"
+    }
+]

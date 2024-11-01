@@ -10,7 +10,7 @@
     text-decoration: none;
   }
 
-  h2 {
+  &__heading {
     @include govuk-responsive-margin(1, "bottom");
     line-height: 125%;
   }

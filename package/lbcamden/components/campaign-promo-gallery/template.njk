@@ -1,0 +1,15 @@
+{% from "../image/macro.njk" import LBCamdenImage %}
+<div class="lbcamden-campaign-promo-gallery">
+  <h2>{{ params.heading }}</h2>
+  <ul class="lbcamden-campaign-promo-gallery__card-grid">
+    {% for item in params.items %}
+      <li class="lbcamden-card lbcamden-card--clickable lbcamden-campaign-promo-gallery__card"
+        data-module="lbcamden-card">
+        {{ LBCamdenImage(item.icon) }}
+        <span class="lbcamden-campaign-promo-gallery__label">
+          <a class="lbcamden-campaign-promo-gallery__link" href="{{ item.href }}">{{ item.title }}</a>
+        </span>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

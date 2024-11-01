@@ -1,0 +1,15 @@
+{
+    "component": "lead-image",
+    "fixtures": [
+        {
+            "name": "default",
+            "options": {
+                "image": {
+                    "src": "/example-assets/images/hero.jpg"
+                }
+            },
+            "html": "<div class=\"lbcamden-lead-image\">\n    <picture class=\"lbcamden-image__wrapper\">\n  \n\n  \n\n  \n\n  <img\n    class=\"lbcamden-image \"\n    src=\"/example-assets/images/hero.jpg\"\n    alt=\"\"\n    \n    \n    \n    style=\"\"\n  />\n</picture>\n\n</div>",
+            "hidden": false
+        }
+    ]
+}

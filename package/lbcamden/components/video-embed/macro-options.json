@@ -1,0 +1,20 @@
+[
+    {
+        "name": "platform",
+        "type": "string",
+        "required": true,
+        "description": "Platform the video is from"
+    },
+    {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "description": "ID of the video"
+    },
+    {
+        "name": "frameTitle",
+        "type": "string",
+        "required": true,
+        "description": "Title of the video frame"
+    }
+]

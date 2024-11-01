@@ -1,5 +1,7 @@
-<aside class="lbcamden-card lbcamden-card--alt-1">
-  <h2>{{ params.heading }}</h2>
+<aside class="lbcamden-related-content-card lbcamden-card lbcamden-card--alt-1" aria-labelledby="related-content-heading">
+  <h2 id="related-content-heading">
+    {{ params.heading }}
+  </h2>
   <div class="lbcamden-card__content">
     {% if params.shortDescription %}
     <p>{{ params.shortDescription }}</p>

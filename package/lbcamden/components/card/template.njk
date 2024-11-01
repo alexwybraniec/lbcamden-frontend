@@ -16,6 +16,7 @@
   {{ LBCamdenImage(params.image) }}
   <div class="lbcamden-card__content_wrapper">
 {% endif %}
+{% if params.heading %}
 <h{{ headingLevel }}
   class="govuk-heading-m">
   {% if params.heading.href %}
@@ -26,6 +27,7 @@
     {{ params.heading.title }}
   {% endif %}
 </h{{ headingLevel }}>
+{% endif %}
 {%- if params.content %}
   <div class="lbcamden-card__content">
     {% if params.content.text %}

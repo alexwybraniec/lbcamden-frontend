@@ -1,0 +1,32 @@
+{
+    "component": "image-gallery",
+    "fixtures": [
+        {
+            "name": "default",
+            "options": {
+                "items": [
+                    {
+                        "image": {
+                            "src": "/example-assets/images/hero.jpg"
+                        },
+                        "caption": "We provide services and information for residents, businesses and visitors to the London Borough of Camden."
+                    },
+                    {
+                        "image": {
+                            "src": "/example-assets/images/hero.jpg"
+                        },
+                        "caption": "We provide services and information for residents, businesses and visitors to the London Borough of Camden."
+                    },
+                    {
+                        "image": {
+                            "src": "/example-assets/images/hero.jpg"
+                        },
+                        "caption": "We provide services and information for residents, businesses and visitors to the London Borough of Camden."
+                    }
+                ]
+            },
+            "html": "<ul class=\"lbcamden-card-grid lbcamden-image-gallery\">   \n    \n        \n\n\n\n<li\n  class=\"lbcamden-card lbcamden-card--naked\n  \n  \n  \n   lbcamden-card--image\"\n  data-module=\"lbcamden-card\">\n\n  <picture class=\"lbcamden-image__wrapper\">\n  \n\n  \n\n  \n\n  <img\n    class=\"lbcamden-image \"\n    src=\"/example-assets/images/hero.jpg\"\n    alt=\"\"\n    \n    \n    \n    style=\"\"\n  />\n</picture>\n\n  <div class=\"lbcamden-card__content_wrapper\">\n\n\n  <div class=\"lbcamden-card__content\">\n    \n      <p>We provide services and information for residents, businesses and visitors to the London Borough of Camden.</p>\n    \n  </div>\n\n  </div>\n\n</li>\n\n    \n        \n\n\n\n<li\n  class=\"lbcamden-card lbcamden-card--naked\n  \n  \n  \n   lbcamden-card--image\"\n  data-module=\"lbcamden-card\">\n\n  <picture class=\"lbcamden-image__wrapper\">\n  \n\n  \n\n  \n\n  <img\n    class=\"lbcamden-image \"\n    src=\"/example-assets/images/hero.jpg\"\n    alt=\"\"\n    \n    \n    \n    style=\"\"\n  />\n</picture>\n\n  <div class=\"lbcamden-card__content_wrapper\">\n\n\n  <div class=\"lbcamden-card__content\">\n    \n      <p>We provide services and information for residents, businesses and visitors to the London Borough of Camden.</p>\n    \n  </div>\n\n  </div>\n\n</li>\n\n    \n        \n\n\n\n<li\n  class=\"lbcamden-card lbcamden-card--naked\n  \n  \n  \n   lbcamden-card--image\"\n  data-module=\"lbcamden-card\">\n\n  <picture class=\"lbcamden-image__wrapper\">\n  \n\n  \n\n  \n\n  <img\n    class=\"lbcamden-image \"\n    src=\"/example-assets/images/hero.jpg\"\n    alt=\"\"\n    \n    \n    \n    style=\"\"\n  />\n</picture>\n\n  <div class=\"lbcamden-card__content_wrapper\">\n\n\n  <div class=\"lbcamden-card__content\">\n    \n      <p>We provide services and information for residents, businesses and visitors to the London Borough of Camden.</p>\n    \n  </div>\n\n  </div>\n\n</li>\n\n    \n</ul>",
+            "hidden": false
+        }
+    ]
+}

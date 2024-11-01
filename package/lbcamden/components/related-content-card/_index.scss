@@ -1,0 +1,11 @@
+.lbcamden-card.lbcamden-related-content-card {
+  border-top: 5px solid $lbcamden-brand-colour;
+
+  & h2 {
+    @extend .govuk-heading-l;
+
+    &:has(+ .lbcamden-card__content) {
+      @include govuk-responsive-margin(5, "bottom");
+    }
+  }
+}

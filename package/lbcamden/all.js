@@ -1312,4 +1312,6 @@ exports.LBCamdenGuideContent = LBCamdenGuideContent;
 exports.LBCamdenGuideHeader = LBCamdenGuideHeader;
 exports.LBCamdenHeader = LBCamdenHeader;
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 })));

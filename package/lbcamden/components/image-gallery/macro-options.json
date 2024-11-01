@@ -1,0 +1,22 @@
+[
+    {
+        "name": "items",
+        "type": "array",
+        "required": true,
+        "description": "List of images to display in the gallery",
+        "items": [
+            {
+                "name": "image",
+                "type": "object",
+                "required": true,
+                "description": "Image configuration as per LBCamden image component"
+            },
+            {
+                "name": "caption",
+                "type": "string",
+                "required": true,
+                "description": "Caption for the image"
+            }
+        ]
+    }
+]

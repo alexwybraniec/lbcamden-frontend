@@ -2,7 +2,7 @@
   "private": true,
   "name": "lbcamden-frontend",
   "description": "Used only for the development of CAMDEN.GOV.UK Frontend, see `package/package.json` for the published `package.json`",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "engines": {
     "node": "^20.10.0"
   },

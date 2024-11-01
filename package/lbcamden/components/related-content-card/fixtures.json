@@ -21,7 +21,7 @@
                     }
                 ]
             },
-            "html": "<aside class=\"lbcamden-card lbcamden-card--alt-1\">\n  <h2>Related content</h2>\n  <div class=\"lbcamden-card__content\">\n    \n    <p>Contrary to popular belief, Lorem Ipsum is not simply random text</p>\n    \n    <ul class=\"lbcamden-list lbcamden-list--dash\">\n      \n        <li><a href=\"#1\">Related item 1</a></li>\n      \n        <li><a href=\"#2\">Related item 2</a></li>\n      \n        <li><a href=\"#3\">Related item 3</a></li>\n      \n    </ul>\n  </div>\n</aside>",
+            "html": "<aside class=\"lbcamden-related-content-card lbcamden-card lbcamden-card--alt-1\" aria-labelledby=\"related-content-heading\">\n  <h2 id=\"related-content-heading\">\n    Related content\n  </h2>\n  <div class=\"lbcamden-card__content\">\n    \n    <p>Contrary to popular belief, Lorem Ipsum is not simply random text</p>\n    \n    <ul class=\"lbcamden-list lbcamden-list--dash\">\n      \n        <li><a href=\"#1\">Related item 1</a></li>\n      \n        <li><a href=\"#2\">Related item 2</a></li>\n      \n        <li><a href=\"#3\">Related item 3</a></li>\n      \n    </ul>\n  </div>\n</aside>",
             "hidden": false
         },
         {
@@ -43,7 +43,7 @@
                     }
                 ]
             },
-            "html": "<aside class=\"lbcamden-card lbcamden-card--alt-1\">\n  <h2>Related content</h2>\n  <div class=\"lbcamden-card__content\">\n    \n    <ul class=\"lbcamden-list lbcamden-list--dash\">\n      \n        <li><a href=\"#1\">Related item 1</a></li>\n      \n        <li><a href=\"#2\">Related item 2</a></li>\n      \n        <li><a href=\"#3\">Related item 3</a></li>\n      \n    </ul>\n  </div>\n</aside>",
+            "html": "<aside class=\"lbcamden-related-content-card lbcamden-card lbcamden-card--alt-1\" aria-labelledby=\"related-content-heading\">\n  <h2 id=\"related-content-heading\">\n    Related content\n  </h2>\n  <div class=\"lbcamden-card__content\">\n    \n    <ul class=\"lbcamden-list lbcamden-list--dash\">\n      \n        <li><a href=\"#1\">Related item 1</a></li>\n      \n        <li><a href=\"#2\">Related item 2</a></li>\n      \n        <li><a href=\"#3\">Related item 3</a></li>\n      \n    </ul>\n  </div>\n</aside>",
             "hidden": false
         }
     ]

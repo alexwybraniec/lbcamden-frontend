@@ -3,10 +3,10 @@
      data-module="super-navigation-mega-menu">
   {% if params.navigation and params.navigation | length %}
     <h2 id="{{ id_prefix }}-navigation-menu-heading" class="govuk-visually-hidden">
-      Navigation menu
+      {% if site_name%}{{site_name}} n{% else %}N{% endif%}avigation menu
     </h2>
     <button aria-controls="{{id_prefix}}-navigation-menu"
-      aria-expanded="true" aria-label="Show navigation menu"
+      aria-expanded="true" aria-label="Show{% if site_name %} {{site_name}}{% endif %} navigation menu"
       class="lbcamden-header__navigation-top-toggle-button {% if params.search === false %}lbcamden-header__navigation-top-toggle-button--no-search{% endif %}"
       data-toggle-desktop-group="hidden"
       data-toggle-mobile-group="top"

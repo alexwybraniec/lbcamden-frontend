@@ -1,0 +1,28 @@
+.lbcamden-lead-image {
+  $width: 10;
+  $height: 3;
+  $max-image-width: 1440px;
+
+  @media (min-width: $max-image-width) {
+    width: 100%;
+    max-width: $max-image-width;
+    overflow: visible;
+  }
+
+  aspect-ratio: $width / $height;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+
+  picture,
+  img {
+    @media screen and (min-width: $max-image-width) {
+      overflow: visible;
+    }
+
+    max-width: $max-image-width;
+  }
+}

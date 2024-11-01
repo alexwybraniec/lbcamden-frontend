@@ -24,6 +24,12 @@
         "description": "Description of the gallery."
     },
     {
+        "name": "cardHeadingLevel",
+        "type": "int",
+        "required": false,
+        "description": "Set the heading level of card items to something other than the default h2."
+    },
+    {
         "name": "items",
         "type": "array",
         "required": true,

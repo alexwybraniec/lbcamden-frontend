@@ -1,0 +1,18 @@
+.lbcamden-video-embed {
+  position: relative;
+  max-width: 100%;
+  height: 0;
+  margin-bottom: govuk-spacing(6);
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+
+.lbcamden-video-embed iframe,
+.lbcamden-video-embed object,
+.lbcamden-video-embed embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

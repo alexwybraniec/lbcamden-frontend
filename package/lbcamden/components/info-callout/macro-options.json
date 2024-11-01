@@ -1,0 +1,38 @@
+[
+    {
+        "name": "heading",
+        "type": "string",
+        "required": false,
+        "description": "Heading displayed above engagement message"
+    },
+    {
+        "name": "subheading",
+        "type": "string",
+        "required": false,
+        "description": "Subheading displayed above engagement message"
+    },
+    {
+        "name": "content",
+        "type": "string",
+        "required": false,
+        "description": "content of engagement banner"
+    },
+    {
+        "name": "linkLabel",
+        "type": "string",
+        "required": false,
+        "description": "Label for the link"
+    },
+    {
+        "name": "linkHreg",
+        "type": "string",
+        "required": false,
+        "description": "URL for engagement block to link to"
+    },
+    {
+        "name": "buttonStyle",
+        "type": "string",
+        "required": false,
+        "description": "Style of the button/link"
+    }
+]

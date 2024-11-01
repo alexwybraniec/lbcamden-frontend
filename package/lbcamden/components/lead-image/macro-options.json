@@ -1,0 +1,8 @@
+[
+    {
+        "name": "image",
+        "type": "object",
+        "required": true,
+        "description": "Image configuration as per LBCamden image component"
+    }
+]

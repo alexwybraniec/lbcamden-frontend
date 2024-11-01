@@ -1,0 +1,13 @@
+{% from "../image/macro.njk" import LBCamdenImage %}
+<section role="banner"
+         class="lbcamden-campaign-engagement-banner lbcamden-campaign-engagement-banner--{{ params.orientation }}">
+    {% if params.orientation == "text-right" %}{{ LBCamdenImage(params.image) }}{% endif %}
+    <div class="lbcamden-campaign-engagement-banner__content">
+        <h2>
+            <a href="{{ params.link }}">{{ params.heading }}</a>
+        </h2>
+        {{ params.shortDescription | safe }}
+    </div>
+    {% if params.orientation == "text-left" %}{{ LBCamdenImage(params.image) }}{% endif %}
+</section>
+

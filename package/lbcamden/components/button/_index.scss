@@ -107,7 +107,6 @@ $button-shadow-size: $govuk-border-width-form-element;
     //    color: $govuk-focus-text-colour;
     //  }
     //}
-
     &:hover,
     &.\:hover {
       color: lbcamden-colour("white");
@@ -296,7 +295,7 @@ $button-shadow-size: $govuk-border-width-form-element;
 
     -ms-flex-pack: center;
 
-    justify-content: center;
+        justify-content: center;
   }
 
   &__start-icon {
@@ -307,9 +306,9 @@ $button-shadow-size: $govuk-border-width-form-element;
     }
     vertical-align: middle;
     -ms-flex-negative: 0;
-    flex-shrink: 0;
+        flex-shrink: 0;
     -ms-flex-item-align: center;
-    align-self: center;
+        align-self: center;
     // Work around SVGs not inheriting color from parent in forced color mode
     // (https://github.com/w3c/csswg-drafts/issues/6310)
     forced-color-adjust: auto;

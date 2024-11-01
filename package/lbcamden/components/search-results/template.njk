@@ -1,11 +1,13 @@
+{% set h %}h{{ params.headingLevel|default("3") }}{% endset %}
+
 <ul class="lbcamden-search-results">
   {% for item in params.items %}
   <li class="lbcamden-search-results__item">
-    <h2>
+    <{{ h }} class="lbcamden-search-results__heading govuk-heading-l">
       <a href="{{ item.href }}">
         {{ item.title }}
       </a>
-    </h2>
+    </{{ h }}>
 
     {% if item.externalSite %}
       <div class="lbcamden-search-results__location">

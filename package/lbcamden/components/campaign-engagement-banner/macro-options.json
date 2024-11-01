@@ -1,0 +1,32 @@
+[
+    {
+        "name": "orientation",
+        "type": "string",
+        "required": false,
+        "description": "Orientation of the banner"
+    },
+    {
+        "name": "heading",
+        "type": "string",
+        "required": false,
+        "description": "Heading displayed"
+    },
+    {
+        "name": "shortDescription",
+        "type": "string",
+        "required": false,
+        "description": "Short description displayed"
+    },
+    {
+        "name": "link",
+        "type": "string",
+        "required": false,
+        "description": "URL for engagement block to link to"
+    },
+    {
+        "name": "image",
+        "type": "object",
+        "required": true,
+        "description": "Image configuration as per LBCamden image component"
+    }
+]

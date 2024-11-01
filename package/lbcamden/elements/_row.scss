@@ -9,7 +9,7 @@
 
   &--related {
     @include govuk-responsive-margin(7, "top");
-    border-top: 3px solid $govuk-brand-colour;
+    border-top: 5px solid $govuk-brand-colour;
     background: lbcamden-colour("govuk-bg-bright1-colour");
   }
 
