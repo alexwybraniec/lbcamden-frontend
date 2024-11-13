@@ -1,0 +1,238 @@
+---
+scenario: The top level page for a topic, service or category.
+notes:
+---
+{% extends "examples/layouts/full-page-example.njk" %}
+
+{% from "src/lbcamden/components/card/macro.njk" import LBCamdenCard %}
+{% from "src/lbcamden/components/more-in/macro.njk" import LBCamdenMoreIn %}
+{% from "src/lbcamden/components/link-list-gallery/macro.njk" import LBCamdenLinkListGallery %}
+{% from "src/lbcamden/components/promo-gallery/macro.njk" import LBCamdenPromoGallery %}
+{% from "node_modules/govuk-frontend/dist/govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% set pageTitle = "Business" %}
+{% block pageTitle %}{{ pageTitle }} - CAMDEN.GOV.UK{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      }
+    ]
+  }) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-!-margin-bottom-5">Housing</h1>
+
+      <p class="govuk-body-lead">Housing advice and support in Camden</p>
+
+    </div>
+  </div>
+
+  {{ LBCamdenPromoGallery({
+    "heading": "Popular",
+    "classes": "govuk-!-margin-bottom-9",
+    "items": [
+      {
+        title: "Housing Repairs",
+        href: "#"
+      },
+      {
+        title: "Leaseholder and Freeholders",
+        href: "#"
+      },
+      {
+        title: "Bid for a property",
+        href: "#"
+      },
+      {
+        title: "Apply for council Housing",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {{ LBCamdenLinkListGallery({
+        "heading": "Contents",
+        "items": [
+          {
+            title: "Council tenants",
+            viewAllHref: "#",
+            links: [
+              {
+                title: "Council tenant rights and responsibilities",
+                href: "#"
+              },
+              {
+                title: "Home swap",
+                href: "#"
+              },
+              {
+                title: "Paying rent for your council home",
+                href: "#"
+              },
+              {
+                title: "Ordering keys or fobs",
+                href: "#"
+              },
+              {
+                title: "Your Neighbourhood Housing Officer",
+                href: "#"
+              },
+              {
+                title: "Downsizing",
+                href: "#"
+              }
+            ]
+          },
+          {
+            title: "Finding a home",
+            viewAllHref: "#",
+            links: [
+              {
+                title: "Apply for council housing",
+                href: "#"
+              },
+              {
+                title: "Intermediate housing",
+                href: "#"
+              },
+              {
+                title: "Update a council housing application",
+                href: "#"
+              }
+            ]
+          },
+          {
+            title: "Fire and building safety",
+            viewAllHref: "#",
+            links: [
+              {
+                title: "Fire safety advice",
+                href: "#"
+              },
+              {
+                title: "Fire risk assessments for Camden housing",
+                href: "#"
+              },
+              {
+                title: "Asbestos Advice",
+                href: "#"
+              },
+              {
+                title: "Safety cases for high rise buildings",
+                href: "#"
+              }
+            ]
+          },
+          {
+            title: "Homelessness in Camden",
+            viewAllHref: "#",
+            links: [
+              {
+                title: "Hostels and support for homeless people in Camden",
+                href: "#"
+              },
+              {
+                title: "Find my nearest soup kitchen",
+                href: "#"
+              },
+              {
+                title: "Tackling homelessness",
+                href: "#"
+              },
+              {
+                title: "Help for rough sleepers",
+                href: "#"
+              }
+            ]
+          },
+
+          {
+            title: "Landlords, home owners and private tenants",
+            viewAllHref: "#",
+            links: [
+              {
+                title: "Housing adaptations, grants and assistance",
+                href: "#"
+              },
+              {
+                title: "Houses in multiple occupation (HMO)",
+                href: "#"
+              },
+              {
+                title: "Private sector housing standards and enforcement",
+                href: "#"
+              },
+              {
+                title: "Landlord accreditation scheme",
+                href: "#"
+              },
+              {
+                title: "Requirements for agents and landlords",
+                href: "#"
+              },
+              {
+                title: "Empty homes",
+                href: "#"
+              },
+              {
+                title: "Camden Lettings",
+                href: "#"
+              },
+              {
+                title: "Camden Private Renters website",
+                href: "#"
+              }
+            ]
+          },
+          {
+            title: "Leaseholders and freeholders",
+            viewAllHref: "#",
+            links: [
+              {
+                title: "Selling or remortgaging your leasehold property",
+                href: "#"
+              },
+              {
+                title: "Consultation with leaseholders on building works and services",
+                href: "#"
+              },
+              {
+                title: "Service Charge, Insurance and Freeholders",
+                href: "#"
+              },
+              {
+                title: "Making alterations or improvements to your property",
+                href: "#"
+              }
+            ]
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+{% endblock %}
+
+{% block afterContent %}
+
+  {{ LBCamdenMoreIn({
+    heading: 'More in Housing',
+    relatedContent: [
+      { href: "#", text: "Tenant and Resident Associations (TRAs) in Camden" },
+      { href: "#", text: "Apply for a garage, parking space, or a shed" },
+      { href: "#", text: "Building Safety Fund" },
+      { href: "#", text: "Estate walkabouts" },
+      { href: "#", text: "Camden housing and property residents panel" },
+      { href: "#", text: "Electricity meters in locked communal areas" }
+    ]
+  }) }}
+
+{% endblock %}

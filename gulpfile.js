@@ -9,8 +9,6 @@ const taskArguments = require('./tasks/gulp/task-arguments')
 require('./tasks/gulp/clean.js')
 require('./tasks/gulp/compile-assets.js')
 require('./tasks/gulp/lint.js')
-require('./tasks/gulp/nodemon.js')
-require('./tasks/gulp/watch.js')
 // new tasks
 require('./tasks/gulp/copy-to-destination.js')
 require('./tasks/gulp/asset-version.js')
@@ -48,25 +46,6 @@ gulp.task('copy:assets', () => {
 gulp.task('copy-assets', gulp.series(
   'styles',
   'scripts'
-))
-
-// Serve task ---------------------------
-// Restarts node app when there is changed
-// affecting js, css or njk files
-// --------------------------------------
-gulp.task('serve', gulp.parallel(
-  'watch',
-  'nodemon'
-))
-
-// Dev task -----------------------------
-// Runs a sequence of task on start
-// --------------------------------------
-gulp.task('dev', gulp.series(
-  'clean',
-  'copy-assets',
-  'sassdoc',
-  'serve'
 ))
 
 // Build package task -----------------

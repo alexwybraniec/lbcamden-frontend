@@ -1,3 +1,4 @@
+/* @jest-environment node */
 /* eslint-env jest */
 
 const glob = require('glob')
@@ -13,10 +14,8 @@ const sassFiles = glob.sync(`${configPaths.src}/settings/**/*.scss`)
 describe('The settings layer', () => {
   it('should not output any CSS', async () => {
     const settings = path.join(configPaths.src, 'settings', '_all.scss')
-    const data = `
-    @import "../helpers/colour";`
 
-    const output = await renderSass({ data: data, file: settings })
+    const output = await renderSass({ file: settings })
     expect(output.css.toString()).toEqual('')
   })
 

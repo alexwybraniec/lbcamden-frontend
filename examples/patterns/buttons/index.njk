@@ -1,0 +1,74 @@
+{% from "node_modules/govuk-frontend/dist/govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "../../../../src/lbcamden/components/button/macro.njk" import LBCamdenButton %}
+
+{% extends "examples/layouts/layout.njk" %}
+
+{% block beforeContent %}
+  <div class="govuk-width-container">
+    {{ govukBackLink({
+      "href": "/"
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  {% set variants = {
+    'Primary Button': '',
+    'Start Button': 'lbcamden-button--start',
+    'Secondary Button': 'lbcamden-button--secondary',
+    'Warning Button': 'lbcamden-button--warning'
+  } %}
+
+  {% set states = {
+    '': '',
+    'Large': 'lbcamden-button--large',
+    'Hovered': ':hover',
+    'Active': ':active',
+    'Disabled': ':disabled',
+    'Visited': ':visited',
+    'Focussed': ':focus',
+    'Focussed hover': ':focus :hover',
+    'Focussed active': ':focus :active'
+  } %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Buttons
+      </h1>
+
+      {% for variant_description, variant_class in variants %}
+
+        <section
+          class="govuk-!-margin-top-8"{% if variant_class == "govuk-link--inverse" %} style="background: #1d70b8; padding: 15px; margin: -15px;"{% endif %}>
+          <h2
+            class="govuk-heading-l"{% if variant_class == "govuk-link--inverse" %} style="color: #fff;"{% endif %}>{{ variant_description }}</h2>
+
+          {% for state_description, state_class in states %}
+            <p class="govuk-body">
+
+                {{ LBCamdenButton({
+                  classes: variant_class + ' ' + state_class,
+                  text: state_description + ' Button',
+                  disabled: state_description === 'Disabled',
+                  isStartButton: variant_description === 'Start Button'
+                }) }}
+
+                {{ LBCamdenButton({
+                  classes: variant_class + ' ' + state_class,
+                  text: state_description + ' Link',
+                  href: randomPageHash,
+                  disabled: state_description === 'Disabled',
+                  isStartButton: variant_description === 'Start Button'
+                }) }}
+
+            </p>
+          {% endfor %}
+        </section>
+      {% endfor %}
+
+    </div>
+  </div>
+{% endblock %}

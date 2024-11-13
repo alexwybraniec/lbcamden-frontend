@@ -1,7 +1,6 @@
 import '../../vendor/polyfills/Event' // addEventListener and event.target normaliziation
 import '../../vendor/polyfills/Function/prototype/bind'
 
-var KEY_SPACE = 32
 var DEBOUNCE_TIMEOUT_IN_SECONDS = 1
 
 function Button ($module) {
@@ -22,7 +21,7 @@ Button.prototype.handleKeyDown = function (event) {
   // get the target element
   var target = event.target
   // if the element has a role='button' and the pressed key is a space, we'll simulate a click
-  if (target.getAttribute('role') === 'button' && event.keyCode === KEY_SPACE) {
+  if (target.getAttribute('role') === 'button' && event.key === 'Space') {
     event.preventDefault()
     // trigger the target's click event
     target.click()

@@ -1,0 +1,94 @@
+{% from "node_modules/govuk-frontend/dist/govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "../../../../src/lbcamden/components/card/macro.njk" import LBCamdenCard %}
+
+{% extends "examples/layouts/layout.njk" %}
+
+{% block beforeContent %}
+  <div class="govuk-width-container">
+    {{ govukBackLink({
+      "href": "/"
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  {% set variants = {
+    'Default': '',
+    'Promo links': 'promo-link',
+    'Promo links alt': 'promo-link--alt',
+    'Style 1': 'alt-1',
+    'Style 2': 'alt-2',
+    'Style 3': 'alt-3',
+    'Image': 'image',
+    'Naked': 'naked'
+  } %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        Cards
+      </h1>
+
+      {% for variant_description, variant_class in variants %}
+
+        {% set randomText = [
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s',
+          'Contrary to popular belief, Lorem Ipsum is not simply random text',
+          'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form',
+          'The standard chunk used since the 1500s'
+        ] %}
+
+        <section class="lbcamden-row">
+          <h2 class="govuk-heading-l">{{ variant_description }}</h2>
+
+          <ul class="lbcamden-card-grid lbcamden-card-grid-three-columns">
+            {% set loopCount = [1, 2, 3, 4, 5, 6, 7, 8, 9] %}
+            {% for item in loopCount %}
+              {% if variant_description === 'Image' %}
+                {{ LBCamdenCard({
+                  heading: {
+                    title: 'Example',
+                    href: '#'
+                  },
+                  image: {
+                    src: 'https://images.unsplash.com/photo-1561566302-67abce51c2c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80',
+                    alt: 'Image of Camden market'
+                  },
+                  content: {
+                    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s'
+                  },
+                  type: 'alt-1',
+                  clickable: true
+                }) }}
+              {% elseif variant_description === 'Promo links' or variant_description === 'Promo links alt' %}
+                {{ LBCamdenCard({
+                  heading: {
+                    title: 'Example',
+                    href: '#'
+                  },
+                  clickable: true,
+                  type: variant_class
+                }) }}
+              {% else %}
+                {{ LBCamdenCard({
+                  heading: {
+                    title: 'Example',
+                    href: '#'
+                  },
+                  content: {
+                    text: randomText | random
+                  },
+                  clickable: true,
+                  type: variant_class
+                }) }}
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </section>
+      {% endfor %}
+
+    </div>
+  </div>
+{% endblock %}

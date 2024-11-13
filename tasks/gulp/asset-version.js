@@ -4,14 +4,9 @@ const configPaths = require('../../config/paths.json')
 const gulp = require('gulp')
 const fs = require('fs')
 const taskArguments = require('./task-arguments')
-const gulpif = require('gulp-if')
 const rename = require('gulp-rename')
 const del = require('del')
 const vinylPaths = require('vinyl-paths')
-
-// check for the flag passed by the task
-
-const isDist = taskArguments.destination === 'dist' || false
 
 // Update assets' versions ----------
 // Add all.package.json version
@@ -24,12 +19,10 @@ gulp.task('update-assets-version', () => {
     taskArguments.destination + '/lbcamden-frontend.min.js'
   ])
     .pipe(vinylPaths(del))
-    .pipe(gulpif(isDist,
-      rename(obj => {
-        obj.basename = obj.basename.replace(/(lbcamden.*)(?=\.min)/g, '$1-' + pkg.version)
-        return obj
-      })
-    ))
+    .pipe(rename(obj => {
+      obj.basename = obj.basename.replace(/(lbcamden.*)(?=\.min)/g, '$1-' + pkg.version)
+      return obj
+    }))
     .pipe(gulp.dest(taskArguments.destination + '/'))
 })
 
@@ -40,11 +33,9 @@ gulp.task('update-govuk-assets-version', () => {
     taskArguments.destination + '/govuk-frontend.min.js'
   ])
     .pipe(vinylPaths(del))
-    .pipe(gulpif(isDist,
-      rename(obj => {
-        obj.basename = obj.basename.replace(/(govuk.*)(?=\.min)/g, '$1-' + govukPkg.version)
-        return obj
-      })
-    ))
+    .pipe(rename(obj => {
+      obj.basename = obj.basename.replace(/(govuk.*)(?=\.min)/g, '$1-' + govukPkg.version)
+      return obj
+    }))
     .pipe(gulp.dest(taskArguments.destination + '/'))
 })

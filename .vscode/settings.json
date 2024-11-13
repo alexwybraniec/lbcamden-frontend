@@ -8,5 +8,7 @@
   },
   "[scss]": {
     "editor.formatOnSave": false
-  }
+  },
+  "jest.runMode": "on-demand",
+  "jest.jestCommandLine": "npx jest"
 }

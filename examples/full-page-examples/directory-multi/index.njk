@@ -1,0 +1,577 @@
+---
+scenario: You want to change your name by deed poll
+notes:
+---
+{% extends "examples/layouts/full-page-example.njk" %}
+{% set mainClasses = 'govuk-width-container' %}
+
+{% from "node_modules/govuk-frontend/dist/govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "node_modules/govuk-frontend/dist/govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "src/lbcamden/components/directory-record/macro.njk" import LBCamdenDirectoryRecord %}
+
+{% set pageTitle = "Contact secondary schools in Camden" %}
+{% block pageTitle %}{{ pageTitle }} - CAMDEN.GOV.UK{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#/"
+      },
+      {
+        text: "Contacts",
+        href: "#/"
+      },
+      {
+        text: "Education contacts",
+        href: "#/"
+      }
+    ]
+  }) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1>Contact secondary schools in Camden</h1>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop lbcamden-prose">
+
+      <ul class="lbcamden-list--dash govuk-!-margin-bottom-9">
+        <li>
+          <a href="#record0">Acland Burghley School</a>
+        </li>
+
+        <li>
+          <a href="#record1">Camden School for Girls</a>
+        </li>
+
+        <li>
+          <a href="#record2">Great Ormond Street Hospital for Children School</a>
+        </li>
+
+        <li>
+          <a href="#record3">Hampstead School</a>
+        </li>
+
+        <li>
+          <a href="#record4">Haverstock School</a>
+        </li>
+
+        <li>
+          <a href="#record5">La Sainte Union Catholic Secondary School</a>
+        </li>
+
+        <li>
+          <a href="#record6">Maria Fidelis Catholic School FCJ</a>
+        </li>
+
+        <li>
+          <a href="#record7">Parliament Hill School</a>
+        </li>
+
+        <li>
+          <a href="#record8">Regent High School and Regent Sixth Form</a>
+        </li>
+
+        <li>
+          <a href="#record9">Royal Free Hospital Childrens School</a>
+        </li>
+
+        <li>
+          <a href="#record10">UCL Academy</a>
+        </li>
+
+        <li>
+          <a href="#record11">William Ellis School</a>
+        </li>
+
+      </ul>
+
+      {{ LBCamdenDirectoryRecord({
+        'title': 'Camden School for Girls',
+        'recordId': 'record1',
+        'items': [
+          {
+            'label': 'Address',
+            'value': 'Sandall Road London<br>NW5 2DB'
+          },
+          {
+          'label': 'Email',
+          'value': '<a href="mailto:csg@camdengirls.camden.sch.uk">csg@camdengirls.camden.sch.uk</a>'
+          },
+          {
+          'label': 'Website',
+          'value': '<a href="http://www.camdengirls.camden.sch.uk">http://www.camdengirls.camden.sch.uk</a>'
+          },
+          {
+          'label': 'Phone',
+          'value': '020 7485 3414'
+           },
+          {
+          'label': 'Fax',
+          'value': '020 7284 3361'
+          },
+          {
+          'label': 'Details',
+          'value': 'Voluntary aided (Frances Mary Buss Foundation) state comprehensive school for girls, which admits boys in the Sixth Form.'
+          }
+        ]
+      })}}
+
+      {{ LBCamdenDirectoryRecord({
+        'title': 'Great Ormond Street Hospital for Children School',
+        'recordId': 'record2',
+        'alias': '(Also known as the Childrens Hospital School at GOS and UCLH)',
+        'items': [
+          {
+            'label': 'Address',
+            'value': 'Great Ormond Street London<br>WC1N 3JH'
+          },
+
+          {
+            'label': 'Email',
+            'value': '<a href="mailto:admin@gosh.camden.sch.uk">admin@gosh.camden.sch.uk</a>'
+          },
+
+          {
+            'label': 'Website',
+            'value': '<a href="https://www.gosh.nhs.uk/your-hospital-visit/hospital-facilities-and-services/welcome-childrens-hospital-school/">https://www.gosh.nhs.uk/your-hospital-visit/hospital-facilities-and-services/welcome-childrens-hospital-school/</a>'
+          },
+
+          {
+            'label': 'Phone',
+            'value': '020 7813 8269'
+          },
+
+          {
+            'label': 'Fax',
+            'value': '020 7813 8531'
+          },
+
+          {
+            'label': 'Details',
+            'value': 'Foundation special hospital school teaching in-patients of the hospital. Also runs the education service at University College Hospital. (The details shown here were taken from the organisation\'s website).'
+          }
+
+        ]
+      })}}
+
+      {{ LBCamdenDirectoryRecord({
+      'title': 'Hampstead School',
+      'recordId': 'record3',
+
+        'items': [
+          {
+            'label': 'Address',
+            'value': 'Westbere Road London<br>NW2 3RT'
+          },
+
+          {
+            'label': 'Email',
+            'value': '<a href="mailto:enquiries@hampsteadschool.org.uk">enquiries@hampsteadschool.org.uk</a>'
+          },
+
+          {
+            'label': 'Website',
+            'value': '<a href="http://www.hampsteadschool.org.uk">http://www.hampsteadschool.org.uk</a>'
+          },
+
+          {
+            'label': 'Phone',
+            'value': '020 7794 8133'
+          },
+
+          {
+            'label': 'Details',
+            'value': 'A <a href="#">DfE designated Technology College</a>. Has provision for pupils with SEND needs. (The details shown here were taken from the organisation\'s website).'
+          }
+
+        ]
+      })}}
+
+      {{ LBCamdenDirectoryRecord({
+      'title': 'Haverstock School',
+      'recordId': 'record4',
+
+        'items': [
+          {
+            'label': 'Address',
+            'value': '24&nbsp; Haverstock Hill<br>London<br>NW3 2BQ'
+          },
+
+          {
+            'label': 'Email',
+            'value': '<a href="mailto:office@haverstock.camden.sch.uk">office@haverstock.camden.sch.uk</a>'
+          },
+
+          {
+            'label': 'Website',
+            'value': '<a href="http://www.haverstock.camden.sch.uk">http://www.haverstock.camden.sch.uk</a>'
+          },
+
+          {
+            'label': 'Phone',
+            'value': '020 7267 0975'
+          },
+
+          {
+            'label': 'Fax',
+            'value': '020 7267 3807'
+          },
+
+          {
+            'label': 'Details',
+            'value': 'State community mixed secondary school.&nbsp; Extended School&nbsp;programme includes daily sports activities, cadets, Duke of Edinburgh Award, holiday sports scheme and Saturday sessions for over 60s. (The details shown here were taken from the organisation\'s website).'
+          }
+
+        ]
+      })}}
+
+      {{ LBCamdenDirectoryRecord({
+      'title': 'La Sainte Union Catholic Secondary School',
+      'recordId': 'record5',
+
+        'items': [
+
+          {
+            'label': 'Address',
+            'value': 'Highgate Road London<br>NW5 1RP'
+          },
+
+          {
+            'label': 'Website',
+            'value': '<a href="https://www.lasainteunion.org.uk/">https://www.lasainteunion.org.uk/</a>'
+          },
+
+          {
+            'label': 'Phone',
+            'value': '020 7428 4600'
+          },
+
+          {
+            'label': 'Fax',
+            'value': '020 7267 7647'
+          },
+
+          {
+            'label': 'Details',
+            'value': 'Girls\' voluntary aided Roman Catholic comprehensive school. Part of LaSWAP Sixth Form Consortium.'
+          }
+
+        ]
+      })}}
+
+      {{ LBCamdenDirectoryRecord({
+      'title': 'Maria Fidelis Catholic School FCJ',
+      'recordId': 'record6',
+
+        'items': [
+
+          {
+            'label': 'Address',
+            'value': '1-39&nbsp; Drummond Crescent<br>London<br>NW1 1LY'
+          },
+
+          {
+            'label': 'Email',
+            'value': '<a href="mailto:office@mariafidelis.camden.sch.uk">office@mariafidelis.camden.sch.uk</a>'
+          },
+
+          {
+            'label': 'Website',
+            'value': '<a href="http://www.mariafidelis.camden.sch.uk">http://www.mariafidelis.camden.sch.uk</a>'
+          },
+
+          {
+            'label': 'Phone',
+            'value': '020 7387 3856'
+          },
+
+          {
+            'label': 'Details',
+            'value': 'Mixed state Roman Catholic comprehensive secondary school for students aged 11 to 19.'
+          }
+
+        ]
+      })}}
+
+      {{ LBCamdenDirectoryRecord({
+      'title': 'Parliament Hill School',
+      'recordId': 'record7',
+
+        'items': [
+
+          {
+            'label': 'Address',
+            'value': 'Highgate Road London<br>NW5 1RL'
+          },
+
+          {
+            'label': 'Email',
+            'value': '<a href="mailto:enquiries@parliamenthill.camden.sch.uk">enquiries@parliamenthill.camden.sch.uk</a>'
+          },
+
+          {
+            'label': 'Website',
+            'value': '<a href="http://www.parliamenthill.camden.sch.uk">http://www.parliamenthill.camden.sch.uk</a>'
+          },
+
+          {
+            'label': 'Phone',
+            'value': '020 7485 7077'
+          },
+
+          {
+            'label': 'Fax',
+            'value': '020 7485 9524'
+          },
+
+          {
+            'label': 'Details',
+            'value': 'State community girls\' secondary school. Has a joint 6th form with William Ellis boys\' school. Part of the LA SWAP 6th form consortium. A Connexions Personal Adviser is based at the school.'
+          }
+
+        ]
+      })}}
+
+      {{ LBCamdenDirectoryRecord({
+      'title': 'Regent High School and Regent Sixth Form',
+      'recordId': 'record8',
+
+        'items': [
+
+          {
+            'label': 'Address',
+            'value': 'Chalton Street London<br>NW1 1RX'
+          },
+
+          {
+            'label': 'Email',
+            'value': '<a href="mailto:enquiries@regenthighschool.org.uk">enquiries@regenthighschool.org.uk</a>'
+          },
+
+          {
+            'label': 'Website',
+            'value': '<a href="http://www.regenthighschool.org.uk">http://www.regenthighschool.org.uk</a>'
+          },
+
+          {
+            'label': 'Phone',
+            'value': '020 7387 0126'
+          },
+
+          {
+            'label': 'Details',
+            'value': 'State community mixed 11 to 19 secondary school, with a £25 million new building incorporating its own sixth form. Strong partnerships with local businesses, colleges and other prestigious local organisations - part of the Knowledge Quarter, along with the Crick and British Library. Regent Theatre…'
+          }
+
+        ]
+      })}}
+
+      {{ LBCamdenDirectoryRecord({
+      'title': 'Royal Free Hospital Childrens School',
+      'recordId': 'record9',
+
+        'items': [
+
+          {
+            'label': 'Address',
+            'value': 'Ward 6 West B, 6th Floor Royal Free Hospital<br>Pond Street<br>London<br>NW3 2QG'
+          },
+
+          {
+            'label': 'Email',
+            'value': '<a href="mailto:admin@royalfree.camden.sch.uk">admin@royalfree.camden.sch.uk</a>'
+          },
+
+          {
+            'label': 'Website',
+            'value': '<a href="http://www.royalfree.camden.sch.uk/page_viewer.asp?page=Home&amp;pid=1">http://www.royalfree.camden.sch.uk/page_viewer.asp?page=Home&amp;pid=1</a>'
+          },
+
+          {
+            'label': 'Phone',
+            'value': '020 7472 6298/6121'
+          },
+
+          {
+            'label': 'Fax',
+            'value': '020 7830 2302'
+          },
+
+          {
+            'label': 'Details',
+            'value': 'Local authority run education in the hospital.'
+          }
+
+        ]
+      })}}
+
+      {{ LBCamdenDirectoryRecord({
+      'title': 'UCL Academy',
+      'recordId': 'record10',
+      'alias': '(University College London Academy School Also known as the Swiss Cottage Academy)',
+        'items': [
+
+          {
+            'label': 'Address',
+            'value': 'Adelaide Road London<br>NW3 3AQ'
+          },
+
+          {
+            'label': 'Email',
+            'value': '<a href="mailto:enquiries@uclacademy.co.uk">enquiries@uclacademy.co.uk</a>'
+          },
+
+          {
+            'label': 'Website',
+            'value': '<a href="http://www.uclacademy.co.uk">http://www.uclacademy.co.uk</a>'
+          },
+
+          {
+            'label': 'Phone',
+            'value': '020 7449 3080'
+          },
+
+          {
+            'label': 'Details',
+            'value': 'An Academy school for pupils aged 11-19. It admits 180 pupils to Year 7 each year. Ultimately, there will be 1150 pupils aged 11-16, with provision for 250 post-16 pupils (from consultation document). The Academy is based in new buildings in Swiss Cottage. It opened…'
+          }
+
+        ]
+      })}}
+
+
+      {{ LBCamdenDirectoryRecord({
+      'title': 'William Ellis School',
+      'recordId': 'record11',
+
+        'items': [
+
+          {
+            'label': 'Address',
+            'value': 'Highgate Road London<br>NW5 1RL'
+          },
+
+          {
+            'label': 'Email',
+            'value': '<a href="mailto:info@williamellis.camden.sch.uk">info@williamellis.camden.sch.uk</a>'
+          },
+
+          {
+            'label': 'Website',
+            'value': '<a href="http://www.williamellis.camden.sch.uk">http://www.williamellis.camden.sch.uk</a>'
+          },
+
+          {
+            'label': 'Phone',
+            'value': '020 7267 9346'
+          },
+
+          {
+            'label': 'Fax',
+            'value': '020 7284 1274'
+          },
+
+          {
+            'label': 'Details',
+            'value': 'Voluntary aided state secondary school (not affiliated to any religious grouping or diocese). Joint 6th form with Parliament Hill Girls\' School and two other local secondary schools. Part of LaSWAP 6th form consortium.'
+          }
+
+        ]
+      })}}
+
+    </div>
+    <div class="govuk-grid-column-one-third-from-desktop">
+      <aside class="lbcamden-card lbcamden-card--alt-1">
+        <h2>Related content</h2>
+        <div class="lbcamden-card__content">
+          <ul class="lbcamden-list lbcamden-list--dash">
+            <li><a href="#">Secondary admissions</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ LBCamdenFooter({
+    "navigation": [
+        {
+          "href": "#1",
+          "text": "Home"
+        },
+        {
+          "href": "#2",
+          "text": "Site map"
+        },
+        {
+          "href": "#3",
+          "text": "Contact Camden Council"
+        }
+    ],
+    "navigationSecondary": [
+        {
+          "href": "#4",
+          "text": "Subscribe to our e-newsletter",
+          "attributes": {
+            "data-highlighted": true
+          }
+        }
+    ],
+    "navigationUtility": [
+
+        {
+          "href": "#1",
+          "text": "Accessibility statement"
+        },
+        {
+          "href": "#2",
+          "text": "Freedom of information disclaimer"
+        },
+        {
+          "href": "#3",
+          "text": "Privacy statement & cookies"
+        },
+        {
+          "href": "#4",
+          "text": "Modern slavery statement"
+        }
+    ],
+
+    "navigationSocial": [
+        {
+          "href": "#1",
+          "text": "Navigation item 1",
+          "attributes": {
+            "data-icon": "facebook"
+          }
+        },
+        {
+          "href": "#2",
+          "text": "Navigation item 2",
+          "attributes": {
+            "data-icon": "youtube"
+          }
+        },
+        {
+          "href": "#3",
+          "text": "Navigation item 3",
+          "attributes": {
+            "data-icon": "twitter"
+          }
+        },
+        {
+          "href": "#4",
+          "text": "Navigation item 4",
+          "attributes": {
+            "data-icon": "linkedin"
+          }
+      }
+    ]
+  }) }}
+{% endblock %}

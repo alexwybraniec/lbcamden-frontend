@@ -1,29 +1,21 @@
-import 'iframe-resizer/js/iframeResizer.contentWindow'
 import "../src/lbcamden/all.scss"
+
+import * as govuk from 'govuk-frontend'
+import * as lbcamden from "../src/lbcamden/all"
+
+document.body.classList.add("govuk-frontend-supported")
 
 /** @type { import('@storybook/html').Preview } */
 const preview = {
-  parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/,
-      },
-    },
-  },
-
+  tags: ["autodocs"],
   decorators: [
-    (story) => {
-      document.body.classList.add('js-enabled')
-
+    (story => {
       setTimeout(() => {
-        GOVUKFrontend.initAll()
-        LBCamdenFrontend.initAll()
+        govuk.initAll()
+        lbcamden.initAll()
       })
-
       return story()
-    }
+    })
   ]
 };
 

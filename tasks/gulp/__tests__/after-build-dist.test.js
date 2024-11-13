@@ -1,3 +1,4 @@
+/* @jest-environment node */
 /* eslint-env jest */
 const path = require('path')
 const lib = require('../../../lib/file-helper')

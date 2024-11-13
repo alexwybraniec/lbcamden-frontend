@@ -1,0 +1,114 @@
+{% extends "examples/layouts/layout.njk" %}
+
+{% from "node_modules/govuk-frontend/dist/govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "node_modules/govuk-frontend/dist/govuk/components/button/macro.njk" import govukButton %}
+{% from "../../../../src/lbcamden/components/button/macro.njk" import LBCamdenButton %}
+
+{% block beforeContent %}
+  <div class="govuk-width-container">
+  {{ govukBackLink({
+    "href": "/"
+  }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <div class="govuk-button-group">
+    {{ LBCamdenButton({
+      "text": "Accept analytics cookies"
+    }) }}
+
+    {{ LBCamdenButton({
+      "text": "Reject analytics cookies"
+    }) }}
+
+    <a href="#" class="govuk-link">View cookies</a>
+  </div>
+
+  <div class="govuk-button-group">
+    {{ LBCamdenButton({
+      "text": "Derbyn cwcis dadansoddeg"
+    }) }}
+
+    {{ LBCamdenButton({
+      "text": "Gwrthod cwcis dadansoddeg"
+    }) }}
+
+    <a href="#" class="govuk-link">Gweld cwcis</a>
+  </div>
+
+  <div class="govuk-button-group">
+    {{ LBCamdenButton({
+      "text": "Accept really important analytics cookies"
+    }) }}
+
+    {{ LBCamdenButton({
+      "text": "Reject really important analytics cookies but not essential cookies"
+    }) }}
+
+    <a href="#" class="govuk-link">View cookies and set preferences to do with whether we can set cookies</a>
+  </div>
+
+  <div class="govuk-button-group">
+    {{ LBCamdenButton({
+      "text": "Delete account",
+      "classes": "govuk-button--warning"
+    }) }}
+
+    <a href="#" class="govuk-link govuk-link--muted">Cancel</a>
+    <a href="#" class="govuk-link govuk-link--muted">Cancel and go back</a>
+  </div>
+
+  <div class="govuk-button-group">
+    <a href="#" class="govuk-link">Buy it</a>
+
+    {{ LBCamdenButton({
+      "text": "Use it"
+    }) }}
+
+    {{ LBCamdenButton({
+      "text": "Break it"
+    }) }}
+
+    <a href="#" class="govuk-link">Fix it</a>
+    <a href="#" class="govuk-link">Trash it</a>
+    <a href="#" class="govuk-link">Change it</a>
+
+    {{ LBCamdenButton({
+      "text": "Mail it"
+    }) }}
+
+    <a href="#" class="govuk-link">Upgrade it</a>
+
+    <a href="#" class="govuk-link">Charge it</a>
+
+    {{ LBCamdenButton({
+      "text": "Point it"
+    }) }}
+
+    {{ LBCamdenButton({
+      "text": "Zoom it"
+    }) }}
+
+    {{ LBCamdenButton({
+      "text": "Press it"
+    }) }}
+  </div>
+
+  <div class="govuk-button-group">
+    {{ LBCamdenButton({
+      text: "Start now",
+      href: "#",
+      isStartButton: true
+    }) }}
+
+    <a href="#" class="govuk-link">Back</a>
+  </div>
+
+  </div>
+</div>
+{% endblock %}

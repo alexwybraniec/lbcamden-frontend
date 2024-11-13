@@ -115,7 +115,7 @@
                 "clickable": true,
                 "type": "alt-3"
             },
-            "html": "<div\n  class=\"lbcamden-card \n  \n  lbcamden-card--alt-3\n  \n   lbcamden-card--clickable\n  \n  \"\n  data-module=\"lbcamden-card\">\n\n\n<h2\n  class=\"govuk-heading-m\">\n  \n    Example heading\n  \n</h2>\n\n  <div class=\"lbcamden-card__content\">\n    \n      <p>This is a description with a <a href=\"#\">link</a> in it</p>\n    \n  </div>\n\n</div>",
+            "html": "<div\n  class=\"lbcamden-card \n  \n  lbcamden-card--alt-3\n  \n   lbcamden-card--clickable\n  \n  \"\n  data-module=\"lbcamden-card\">\n\n\n<h2\n  class=\"govuk-heading-m\">\n  \n    Example heading\n  \n</h2>\n\n  <div class=\"lbcamden-card__content\">\n    \n      <div>This is a description with a <a href=\"#\">link</a> in it</div>\n    \n  </div>\n\n</div>",
             "hidden": false
         },
         {

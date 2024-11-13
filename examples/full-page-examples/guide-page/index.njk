@@ -1,0 +1,166 @@
+---
+scenario: You want to change your name by deed poll
+notes:
+---
+{% extends "examples/layouts/full-page-example.njk" %}
+{% set mainClasses = 'govuk-width-container' %}
+
+{% from "node_modules/govuk-frontend/dist/govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "node_modules/govuk-frontend/dist/govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "src/lbcamden/components/guide-header/macro.njk" import LBCamdenGuideHeader %}
+{% from "src/lbcamden/components/button/macro.njk" import LBCamdenButton %}
+{% from "src/lbcamden/components/guide-content/macro.njk" import LBCamdenGuideContent %}
+{% from "src/lbcamden/components/related-content-card/macro.njk" import LBCamdenRelatedContentCard %}
+
+{% set pageTitle = "Change you name by deed poll" %}
+{% block pageTitle %}{{ pageTitle }} - CAMDEN.GOV.UK{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#/"
+      }
+    ]
+  }) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-!-margin-bottom-4">Housing Repairs</h1>
+
+      {{ LBCamdenGuideHeader({
+        items: [
+          { text: "Report a repair", href: "#report-a-repair" },
+          { text: "Damp and mould", href: "#damp-and-mould" },
+          { text: "Tenants", href: "#tenants" }
+        ]
+      }) }}
+
+      <hr class="govuk-!-margin-top-2 govuk-!-margin-bottom-6" />
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop lbcamden-prose">
+      <div class="govuk-!-margin-bottom-5">
+        {{ LBCamdenGuideContent({
+          "items": [
+            {
+              "heading": "Report a repair",
+              "id": "report-a-repair",
+              "html": "<p>Our repairs team work hard to keep your council homes safe, warm and in good repair all year round.</p>\n\n<h3>Report all non-emergency repairs online</h3>\n\n<p>Reporting online is quick and easy with your Camden Account – you can report a repair 24 hours a day, seven days a week. The appointments you can book online are exactly the same as the appointments our call handlers can book.</p>\n\n<p>How to report online:</p>\n\n<ol>\n  <li>Log in or sign up</li>\n  <li>Select 'Housing' then 'Request a repair'</li>\n  <li>Choose an appointment that suits you</li>\n  <li>We'll text you to confirm your appointment</li>\n</ol>\n\n<p>The first time you report a repair, you will need your rent number. You’ll find it on the bottom right hand corner of your rent statement.</p>\n"
+            },
+            {
+              "heading": "Damp and mould",
+              "id": "damp-and-mould",
+              "html": "<p>\n  Please report any damp and mould in your council home to us straight away so that we can help. We have a team who are responsible for helping residents get rid of damp and mould.\n</p>\n<p>\n  When you report damp and mould in your home to our repairs service, a member of the team will visit your home within 10 working days. They will assess the damp and mould and discuss and agree the next steps with you.\n</p>\n<h3>\n  Report damp and mould\n</h3>\n<p>\n  You can report using our online form, webchat, Whatsapp, text message or phone.\n</p><button class='lbcamden-button lbcamden-button--start' data-module='lbcamden-button'>Report damp and mould<svg class='lbcamden-button__start-icon' xmlns='http://www.w3.org/2000/svg' width='8' height='14' viewBox='0 0 8 14' aria-hidden='true' focusable='false'><path d='M4.48116 7L0.409421 11.3565H0.409258C0.05163 11.7527 -0.0842445 12.3214 0.0519564 12.8525C0.188157 13.3837 0.576033 13.7987 1.07245 13.9444C1.56887 14.0901 2.10045 13.9448 2.47074 13.5621L7.57322 8.10283C7.84641 7.81019 8 7.41361 8 7C8 6.58638 7.8464 6.1898 7.57322 5.89718L2.47074 0.437877C2.10042 0.0552407 1.56887 -0.0901382 1.07245 0.0555872C0.576033 0.201313 0.188161 0.616313 0.0519564 1.14745C-0.0842487 1.67858 0.0516291 2.24733 0.409258 2.64352L4.48116 7Z' fill='currentColor'/></svg></button>\n"
+            },
+            {
+              "heading": "Tenants",
+              "id": "tenants",
+              "html": "<p>\n  Please report any damp and mould in your council home to us straight away so that we can help. We have a team who are responsible for helping residents get rid of damp and mould.\n</p>\n<p>\n  When you report damp and mould in your home to our repairs service, a member of the team will visit your home within 10 working days. They will assess the damp and mould and discuss and agree the next steps with you.\n</p>\n<h3>\n  Report damp and mould\n</h3>\n<p>\n  You can report using our online form, webchat, Whatsapp, text message or phone.\n</p><button class='lbcamden-button lbcamden-button--start' data-module='lbcamden-button'>Report damp and mould<svg class='lbcamden-button__start-icon' xmlns='http://www.w3.org/2000/svg' width='8' height='14' viewBox='0 0 8 14' aria-hidden='true' focusable='false'><path d='M4.48116 7L0.409421 11.3565H0.409258C0.05163 11.7527 -0.0842445 12.3214 0.0519564 12.8525C0.188157 13.3837 0.576033 13.7987 1.07245 13.9444C1.56887 14.0901 2.10045 13.9448 2.47074 13.5621L7.57322 8.10283C7.84641 7.81019 8 7.41361 8 7C8 6.58638 7.8464 6.1898 7.57322 5.89718L2.47074 0.437877C2.10042 0.0552407 1.56887 -0.0901382 1.07245 0.0555872C0.576033 0.201313 0.188161 0.616313 0.0519564 1.14745C-0.0842487 1.67858 0.0516291 2.24733 0.409258 2.64352L4.48116 7Z' fill='currentColor'/></svg></button>\n"
+            }
+          ]
+        }) }}
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-third-from-desktop">
+      {{ LBCamdenRelatedContentCard({
+        "heading": "Related content",
+        "relatedContent": [
+          {
+            "href": "#1",
+            "text": "Related item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Related item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Related item 3"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ LBCamdenFooter({
+    "navigation": [
+        {
+          "href": "#1",
+          "text": "Home"
+        },
+        {
+          "href": "#2",
+          "text": "Site map"
+        },
+        {
+          "href": "#3",
+          "text": "Contact Camden Council"
+        }
+    ],
+    "navigationSecondary": [
+        {
+          "href": "#4",
+          "text": "Subscribe to our e-newsletter",
+          "attributes": {
+            "data-highlighted": true
+          }
+        }
+    ],
+    "navigationUtility": [
+
+        {
+          "href": "#1",
+          "text": "Accessibility statement"
+        },
+        {
+          "href": "#2",
+          "text": "Freedom of information disclaimer"
+        },
+        {
+          "href": "#3",
+          "text": "Privacy statement & cookies"
+        },
+        {
+          "href": "#4",
+          "text": "Modern slavery statement"
+        }
+    ],
+
+    "navigationSocial": [
+        {
+          "href": "#1",
+          "text": "Navigation item 1",
+          "attributes": {
+            "data-icon": "facebook"
+          }
+        },
+        {
+          "href": "#2",
+          "text": "Navigation item 2",
+          "attributes": {
+            "data-icon": "youtube"
+          }
+        },
+        {
+          "href": "#3",
+          "text": "Navigation item 3",
+          "attributes": {
+            "data-icon": "twitter"
+          }
+        },
+        {
+          "href": "#4",
+          "text": "Navigation item 4",
+          "attributes": {
+            "data-icon": "linkedin"
+          }
+      }
+    ]
+  }) }}
+{% endblock %}

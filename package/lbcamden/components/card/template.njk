@@ -33,7 +33,7 @@
     {% if params.content.text %}
       <p>{{ params.content.text }}</p>
     {% else %}
-      <p>{{ params.content.html | safe }}</p>
+      <div>{{ params.content.html | safe }}</div>
     {% endif %}
   </div>
 {%- endif %}
