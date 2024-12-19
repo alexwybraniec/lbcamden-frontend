@@ -9,6 +9,8 @@
   "dist": "dist/",
   "node_modules": "node_modules/",
   "package": "package/",
+  "dist_vite": "package-vite/dist/",
+  "package_vite": "package-vite/",
   "public": "public/",
   "sassdoc": "sassdoc/",
   "src": "src/lbcamden/",

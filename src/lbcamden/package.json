@@ -1,0 +1,43 @@
+{
+    "name": "lbcamden-frontend",
+    "description": "CAMDEN.GOV.UK Frontend contains the code you need to start building a user interface for London Borough of Camden products.",
+    "version": "0.5.3",
+    "main": "lbcamden/all.js",
+    "module": "lbcamden-esm/all.mjs",
+    "exports": {
+      ".": {
+        "sass": "./lbcamden/all.scss",
+        "import": "./lbcamden-esm/all.mjs",
+        "require": "./lbcamden/all.js"
+      },
+      "./lbcamden/": "./lbcamden/",
+      "./lbcamden-esm/": "./lbcamden-esm/",
+      "./dist/": "./dist/"
+    },
+    "sideEffects": [
+      "lbcamden-esm/vendor/**"
+    ],
+    "sass": "lbcamden/all.scss",
+    "engines": {
+      "node": ">= 4.2.0"
+    },
+    "author": {
+      "name": "",
+      "email": ""
+    },
+    "repository": {
+      "type": "git",
+      "url": ""
+    },
+    "bugs": {
+      "url": ""
+    },
+    "homepage": "",
+    "keywords": [
+      "lbcamden",
+      "frontend",
+      "design system",
+      "template"
+    ],
+    "license": "MIT"
+  }
