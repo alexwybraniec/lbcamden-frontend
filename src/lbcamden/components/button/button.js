@@ -1,5 +1,7 @@
-import '../../vendor/polyfills/Event' // addEventListener and event.target normaliziation
-import '../../vendor/polyfills/Function/prototype/bind'
+// AW: Removing these polyfills to avoid CJS build issues. I believe they aren't needed if we don't support IE10 anymore
+
+// import '../../vendor/polyfills/Event' // addEventListener and event.target normaliziation
+// import '../../vendor/polyfills/Function/prototype/bind'
 
 var KEY_SPACE = 32
 var DEBOUNCE_TIMEOUT_IN_SECONDS = 1

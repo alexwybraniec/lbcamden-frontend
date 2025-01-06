@@ -4,6 +4,8 @@ import LBCamdenGuideContent from './components/guide-content/guide-content'
 import LBCamdenGuideHeader from './components/guide-header/guide-header'
 import LBCamdenHeader from './components/header/header'
 
+import './all.scss'
+
 function initAll (options) {
   // Set the options to an empty object by default if no options are passed.
   options = typeof options !== 'undefined' ? options : {}
