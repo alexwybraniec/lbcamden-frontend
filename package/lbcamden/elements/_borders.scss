@@ -1,5 +1,0 @@
-// This sheet is required because GOVUK Frontend does not currently allow override of the $govuk-border-colour variable (it is reset by the package itself)
-.govuk-section-break--visible,
-hr {
-  border-color: $lbcamden-border-colour;
-}

@@ -1,9 +1,0 @@
-// Temporary workaround for the `.:active` companion class (generated for debugging purposes by a build step in review apps) starting to be treated as part of the API.
-
-// At some point, these should be reworked to use something more consistent (like a BEM modifier) but in the meantime,
-// we ensure that this usage makes it into production builds.
-.govuk-link {
-  &.\:active {
-    color: $govuk-link-active-colour;
-  }
-}

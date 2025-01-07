@@ -14,3 +14,9 @@ sassdoc/
 build-storybook.log
 chromatic-diagnostics.json
 storybook-static
+
+*storybook.log
+/dist
+/lbcamden
+package
+

@@ -12,26 +12,14 @@ const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
 const rollup = require('gulp-better-rollup')
 const taskArguments = require('./task-arguments')
-const gulpif = require('gulp-if')
 const uglify = require('gulp-uglify')
 const eol = require('gulp-eol')
 const glob = require('glob')
 const rename = require('gulp-rename')
 const cssnano = require('cssnano')
-// const postcsspseudoclasses = require('postcss-pseudo-classes')({
-//   // Work around a bug in pseudo classes plugin that badly transforms
-//   // :not(:whatever) pseudo selectors
-//   blacklist: [':not(', ':disabled)', ':first-child)', ':last-child)', ':focus)', ':active)', ':hover)']
-// })
 
 // Compile CSS and JS task --------------
 // --------------------------------------
-
-// check if destination flag is public (this is the default)
-const isPublic = taskArguments.destination === 'public' || false
-
-// check if destination flag is dist
-const isDist = taskArguments.destination === 'dist' || false
 
 // Set the destination
 const destinationPath = function () {
@@ -52,8 +40,8 @@ const errorHandler = function (error) {
   this.emit('end')
 }
 
-function compileStyles (done) {
-  const compileStylesheet = isDist ? configPaths.src + 'all.scss' : configPaths.app + 'assets/scss/app.scss'
+gulp.task('scss:compile', (done) => {
+  const compileStylesheet = configPaths.src + 'all.scss'
   const sassOptions = {
     includePaths: ['node_modules']
   }
@@ -61,70 +49,17 @@ function compileStyles (done) {
     .pipe(plumber(errorHandler))
     .pipe(sass(sassOptions))
     // minify css add vendor prefixes and normalize to compiled css
-    .pipe(gulpif(isDist, postcss([
+    .pipe(postcss([
       autoprefixer,
       cssnano
-    ])))
-    .pipe(gulpif(!isDist, postcss([
-      autoprefixer
-      // Auto-generate 'companion' classes for pseudo-selector states - e.g. a
-      // :hover class you can use to simulate the hover state in the review app
-      // postcsspseudoclasses
-    ])))
-    .pipe(gulpif(isDist,
-      rename({
-        basename: 'lbcamden-frontend',
-        extname: '.min.css'
-      })
-    ))
+    ]))
+    .pipe(rename({
+      basename: 'lbcamden-frontend',
+      extname: '.min.css'
+    })
+    )
     .pipe(gulp.dest(taskArguments.destination + '/'))
 
-  done()
-}
-
-// function compileLegacy (done) {
-//   gulp.src(path.join(configPaths.app, 'assets/scss/app-legacy.scss'))
-//     .pipe(plumber(errorHandler))
-//     .pipe(sass({
-//       includePaths: ['node_modules/govuk_frontend_toolkit/stylesheets', 'node_modules']
-//     }))
-//     .pipe(postcss([
-//       autoprefixer,
-//       // Auto-generate 'companion' classes for pseudo-selector states - e.g. a
-//       // :hover class you can use to simulate the hover state in the review app
-//       postcsspseudoclasses
-//     ]))
-//     .pipe(gulp.dest(taskArguments.destination + '/'))
-//
-//   done()
-// }
-
-function compileFullPageStyles (done) {
-  const compileFullPageExampleStylesheets = configPaths.fullPageExamples + '**/styles.scss'
-
-  gulp.src(compileFullPageExampleStylesheets)
-    .pipe(plumber(errorHandler))
-    .pipe(sass())
-    .pipe(rename(function (path) {
-      path.basename = path.dirname
-      path.dirname = ''
-    }))
-    .pipe(gulp.dest(taskArguments.destination + '/full-page-examples/'))
-
-  done()
-}
-
-gulp.task('scss:compile', function (done) {
-  // Default tasks if compiling for dist
-  var tasks = gulp.parallel(compileStyles)
-
-  if (isPublic) {
-    tasks = gulp.parallel(compileStyles, compileFullPageStyles)
-  } else if (!isDist) {
-    tasks = gulp.parallel(compileStyles)
-  }
-
-  tasks()
   done()
 })
 
@@ -132,7 +67,7 @@ gulp.task('scss:compile', function (done) {
 // --------------------------------------
 gulp.task('js:compile', (done) => {
   // For dist/ folder we only want compiled 'all.js'
-  const fileLookup = isDist ? configPaths.src + 'all.js' : configPaths.src + '**/!(*.test).js'
+  const fileLookup = configPaths.src + 'all.js'
 
   // Perform a synchronous search and return an array of matching file names
   const srcFiles = glob.sync(fileLookup)
@@ -156,13 +91,12 @@ gulp.task('js:compile', (done) => {
         // UMD allows the published bundle to work in CommonJS and in the browser.
         format: 'umd'
       }))
-      .pipe(gulpif(isDist, uglify()))
-      .pipe(gulpif(isDist,
-        rename({
-          basename: 'lbcamden-frontend',
-          extname: '.min.js'
-        })
-      ))
+      .pipe(uglify())
+      .pipe(rename({
+        basename: 'lbcamden-frontend',
+        extname: '.min.js'
+      })
+      )
       .pipe(eol())
       .pipe(gulp.dest(destinationPath() + newDirectoryPath))
   })
@@ -170,30 +104,16 @@ gulp.task('js:compile', (done) => {
 })
 
 gulp.task('js:copy-govukfrontend', () => {
-  if (isDist) {
-    return gulp.src([
-      configPaths.node_modules + 'govuk-frontend/govuk/all.js'
-    ])
-      .pipe(uglify())
-      .pipe(
-        rename({
-          basename: 'govuk-frontend',
-          extname: '.min.js'
-        })
-      )
-      .pipe(eol())
-      .pipe(gulp.dest(destinationPath()))
-  } else {
-    return gulp.src([
-      configPaths.node_modules + 'govuk-frontend/govuk/all.js'
-    ])
-      .pipe(
-        rename({
-          basename: 'govuk-frontend',
-          extname: '.js'
-        })
-      )
-      .pipe(eol())
-      .pipe(gulp.dest(destinationPath()))
-  }
+  return gulp.src([
+    configPaths.node_modules + 'govuk-frontend/dist/govuk/all.bundle.js'
+  ])
+    .pipe(uglify())
+    .pipe(
+      rename({
+        basename: 'govuk-frontend',
+        extname: '.min.js'
+      })
+    )
+    .pipe(eol())
+    .pipe(gulp.dest(destinationPath()))
 })

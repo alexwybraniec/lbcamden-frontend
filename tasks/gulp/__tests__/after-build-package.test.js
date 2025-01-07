@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+*/
 /* eslint-env jest */
 
 const fs = require('fs')
@@ -9,18 +12,18 @@ var glob = require('glob')
 
 const configPaths = require('../../../config/paths.json')
 const lib = require('../../../lib/file-helper')
-const { componentNameToJavaScriptModuleName } = require('../../../lib/helper-functions')
+// const { componentNameToJavaScriptModuleName } = require('../../../lib/helper-functions')
 
 const { renderSass } = require('../../../lib/jest-helpers')
 
 const readFile = util.promisify(fs.readFile)
 const componentNames = lib.allComponents.slice()
-const componentsWithJavaScript = glob.sync(configPaths.package + 'lbcamden/components/' + '**/!(*.test).js')
+// const componentsWithJavaScript = glob.sync(configPaths.package_vite + 'lbcamden/components/' + '**/!(*.test).js')
 
 describe('package/', () => {
-  it('should contain the expected files', () => {
+  it('should contain the expected files', async () => {
     // Build an array of the files that are present in the package directory.
-    const actualPackageFiles = () => {
+    const actualPackageFiles = async () => {
       return recursive(configPaths.package).then(
         files => {
           return files
@@ -37,21 +40,33 @@ describe('package/', () => {
 
     // Build an array of files we expect to be found in the package directory,
     // based on the contents of the src directory.
-    const expectedPackageFiles = () => {
+    const expectedPackageFiles = async () => {
       const filesToIgnore = [
         '.DS_Store',
         '*.test.js',
         '*.yaml',
         '*.snap',
-        '*/lbcamden/README.md'
+        '*/lbcamden/README.md',
+        '*/lbcamden/package.json',
+        '*/lbcamden/index.html'
       ]
 
       const additionalFilesNotInSrc = [
         'package.json',
-        'govuk-prototype-kit.config.json',
+        // 'govuk-prototype-kit.config.json',
         '**/macro-options.json',
         '**/fixtures.json',
-        'README.md'
+        '*.map',
+        'README.md',
+        'dist/assets/fonts/*.*',
+        'dist/assets/images/*.*',
+        'dist/assets/images/favicons/*.*',
+        'dist/govuk-frontend-*.min.js',
+        'dist/lbcamden-frontend-*.min.css',
+        'dist/lbcamden-frontend-*.min.js',
+        'dist/*.map',
+        'dist/index.html',
+        'dist/govuk-frontend.min.js'
       ]
 
       return recursive(configPaths.src, filesToIgnore).then(
@@ -65,18 +80,20 @@ describe('package/', () => {
               // Remove /src prefix from filenames
               var fileWithoutSrc = file.replace(/^src\//, '')
 
+              // AW: removing all of this because we don't have an ESM folder anymore
               // Account for lbcamden-esm folder
-              if (fileWithoutSrc.split('.').pop() === 'js') {
-                var esmFile = fileWithoutSrc.replace('lbcamden/', 'lbcamden-esm/')
+              // if (fileWithoutSrc.split('.').pop() === 'js') {
+              //   var esmFile = fileWithoutSrc.replace('lbcamden/', 'lbcamden-esm/')
 
-                if (!esmFile.includes('vendor/')) {
-                  esmFile = esmFile.replace('.js', '.mjs')
-                }
+              //   if (!esmFile.includes('vendor/')) {
+              //     esmFile = esmFile.replace('.js', '.mjs')
+              //   }
 
-                return [fileWithoutSrc, esmFile]
-              } else {
-                return fileWithoutSrc
-              }
+              //   return [fileWithoutSrc, esmFile]
+              // } else {
+              //   return fileWithoutSrc
+              // }
+              return fileWithoutSrc
             })
             // Allow for additional files that are not in src
             .concat(filesNotInSrc)
@@ -90,18 +107,18 @@ describe('package/', () => {
       )
     }
 
-    // Compare the expected directory listing with the files we expect
-    // to be present
-    Promise.all([actualPackageFiles(), expectedPackageFiles()])
+    await Promise.all([await actualPackageFiles(), await expectedPackageFiles()])
       .then(results => {
         const [actualPackageFiles, expectedPackageFiles] = results
 
         expect(actualPackageFiles).toEqual(expectedPackageFiles)
+      }).catch(error => {
+        throw error
       })
   })
 
   describe('README.md', () => {
-    it('is not overwritten', () => {
+    it('is not overwritten', async () => {
       return readFile(path.join(configPaths.package, 'README.md'), 'utf8')
         .then(contents => {
           // Look for H1 matching 'GOV.UK Frontend' from existing README
@@ -119,22 +136,23 @@ describe('package/', () => {
     })
   })
 
-  describe('all.js', () => {
-    it('should have correct module name', async () => {
-      const allJsFile = path.join(configPaths.package, 'lbcamden', 'all.js')
+  // AW: removing because this test is for CJS/AMD and we are now pure ES
+  // describe('all.js', () => {
+  //   it('should have correct module name', async () => {
+  //     const allJsFile = path.join(configPaths.package_vite, 'lbcamden', 'all.js')
 
-      return readFile(allJsFile, 'utf8')
-        .then((data) => {
-          expect(data).toContain("typeof define === 'function' && define.amd ? define('LBCamdenFrontend', ['exports'")
-        })
-        .catch(error => {
-          throw error
-        })
-    })
-  })
+  //     return readFile(allJsFile, 'utf8')
+  //       .then((data) => {
+  //         expect(data).toContain("typeof define === 'function' && define.amd ? define('LBCamdenFrontend', ['exports'")
+  //       })
+  //       .catch(error => {
+  //         throw error
+  //       })
+  //   })
+  // })
 
   describe('component', () => {
-    it.each(componentNames)('\'%s\' should have macro-options.json that contains JSON', (name) => {
+    it.each(componentNames)('\'%s\' should have macro-options.json that contains JSON', async (name) => {
       const filePath = path.join(configPaths.package, 'lbcamden', 'components', name, 'macro-options.json')
       return readFile(filePath, 'utf8')
         .then((data) => {
@@ -159,19 +177,20 @@ describe('package/', () => {
     })
   })
 
-  describe('components with JavaScript', () => {
-    it.each(componentsWithJavaScript)('\'%s\' should have component JavaScript file with correct module name', (javaScriptFile) => {
-      const moduleName = componentNameToJavaScriptModuleName(path.parse(javaScriptFile).name)
+  // AW: removing because this test is for CJS/AMD and we are now pure ES
+  // describe('components with JavaScript', () => {
+  //   it.each(componentsWithJavaScript)('\'%s\' should have component JavaScript file with correct module name', (javaScriptFile) => {
+  //     const moduleName = componentNameToJavaScriptModuleName(path.parse(javaScriptFile).name)
 
-      return readFile(javaScriptFile, 'utf8')
-        .then((data) => {
-          expect(data).toContain("typeof define === 'function' && define.amd ? define('" + moduleName + "', factory)")
-        })
-        .catch(error => {
-          throw error
-        })
-    })
-  })
+  //     return readFile(javaScriptFile, 'utf8')
+  //       .then((data) => {
+  //         expect(data).toContain("typeof define === 'function' && define.amd ? define('" + moduleName + "', factory)")
+  //       })
+  //       .catch(error => {
+  //         throw error
+  //       })
+  //   })
+  // })
 
   describe('fixtures', () => {
     it.each(componentNames)('\'%s\' should have fixtures.json that contains JSON', (name) => {

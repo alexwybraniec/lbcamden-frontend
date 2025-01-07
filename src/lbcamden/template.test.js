@@ -8,6 +8,7 @@ const { renderTemplate } = require('../../lib/jest-helpers')
 
 describe('Template', () => {
   const appViews = [
+    '.',
     'node_modules/govuk-frontend/',
     configPaths.src
   ]
