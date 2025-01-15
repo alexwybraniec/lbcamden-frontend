@@ -1,137 +1,104 @@
-/* eslint-env jest */
+import { describe, expect, it } from 'vitest'
+import { configureAxe } from "vitest-axe";
+const axe = configureAxe({
+  rules: {
+    'skip-link': { enabled: false },
+    region: { enabled: false }
+  }
+})
 
-const configPaths = require('../../../../config/paths.json')
-const PORT = configPaths.ports.test
+const userEvent = require('@testing-library/user-event').default
+const { renderDOM, getExamples } = require('../../../../lib/jest-helpers')
 
-const baseUrl = 'http://localhost:' + PORT
+import LBCamdenButton from './button';
+
+const examples = getExamples('button')
 
 describe('/components/button', () => {
   describe('/components/button/link', () => {
     it('triggers the click event when the space key is pressed', async () => {
-      await page.goto(baseUrl + '/components/button/link/preview', { waitUntil: 'load' })
+      const clicked = jest.fn()
+      const user = userEvent.setup()
 
-      const href = await page.evaluate(() => document.body.getElementsByTagName('a')[0].getAttribute('href'))
+      const button = renderExample(examples.link)
+      button.addEventListener('click', clicked)
+      button.focus()
 
-      await page.focus('a[role="button"]')
-
-      // we need to start the waitForNavigation() before the keyboard action
-      // so we return a promise that is fulfilled when the navigation and the keyboard action are respectively fulfilled
-      // this is somewhat counter intuitive, as we humans expect to act and then wait for something.
-      await Promise.all([
-        page.waitForNavigation(),
-        page.keyboard.press('Space')
-      ])
-
-      const url = await page.url()
-      expect(url).toBe(baseUrl + href)
+      await user.keyboard('{Space}')
+      expect(clicked).toHaveBeenCalledTimes(1)
     })
+
     describe('preventing double clicks', () => {
       it('prevents unintentional submissions when in a form', async () => {
-        await page.goto(baseUrl + '/components/button/prevent-double-click/preview', { waitUntil: 'load' })
+        const submit = jest.fn(() => false)
+        const user = userEvent.setup()
+        const button = renderExample(examples['prevent double click'])
+        const form = encloseInForm(button)
 
-        // Our examples don't have form wrappers so we need to overwrite it.
-        await page.evaluate(() => {
-          const $button = document.querySelector('button')
-          const $form = document.createElement('form')
-          $button.parentNode.appendChild($form)
-          $button.parentNode.removeChild($button)
-          $form.appendChild($button)
+        form.onsubmit = submit
 
-          window.__SUBMIT_EVENTS = 0
-          $form.addEventListener('submit', event => {
-            window.__SUBMIT_EVENTS++
-            // Don't refresh the page, which will destroy the context to test against.
-            event.preventDefault()
-          })
-        })
+        await user.click(button)
+        await user.click(button)
 
-        await page.click('button')
-        await page.click('button')
-
-        const submitCount = await page.evaluate(() => window.__SUBMIT_EVENTS)
-
-        expect(submitCount).toBe(1)
+        expect(submit).toHaveBeenCalledTimes(1)
       })
+
       it('does not prevent intentional multiple clicks', async () => {
-        await page.goto(baseUrl + '/components/button/prevent-double-click/preview', { waitUntil: 'load' })
+        const submit = jest.fn(() => false)
+        const user = userEvent.setup()
+        const button = renderExample(examples['prevent double click'])
+        const form = encloseInForm(button)
 
-        // Our examples don't have form wrappers so we need to overwrite it.
-        await page.evaluate(() => {
-          const $button = document.querySelector('button')
-          const $form = document.createElement('form')
-          $button.parentNode.appendChild($form)
-          $button.parentNode.removeChild($button)
-          $form.appendChild($button)
+        form.onsubmit = submit
 
-          window.__SUBMIT_EVENTS = 0
-          $form.addEventListener('submit', event => {
-            window.__SUBMIT_EVENTS++
-            // Don't refresh the page, which will destroy the context to test against.
-            event.preventDefault()
-          })
-        })
+        await user.click(button)
+        await new Promise(resolve => setTimeout(resolve, 1000))
+        await user.click(button)
 
-        await page.click('button')
-        await page.click('button', { delay: 1000 })
-
-        const submitCount = await page.evaluate(() => window.__SUBMIT_EVENTS)
-
-        expect(submitCount).toBe(2)
+        expect(submit).toHaveBeenCalledTimes(2)
       })
       it('does not prevent multiple submissions when feature is not enabled', async () => {
-        await page.goto(baseUrl + '/components/button/preview', { waitUntil: 'load' })
+        const submit = jest.fn(() => false)
+        const user = userEvent.setup()
+        const button = renderExample()
+        const form = encloseInForm(button)
 
-        // Our examples don't have form wrappers so we need to overwrite it.
-        await page.evaluate(() => {
-          const $button = document.querySelector('button')
-          const $form = document.createElement('form')
-          $button.parentNode.appendChild($form)
-          $button.parentNode.removeChild($button)
-          $form.appendChild($button)
+        form.onsubmit = submit
 
-          window.__SUBMIT_EVENTS = 0
-          $form.addEventListener('submit', event => {
-            window.__SUBMIT_EVENTS++
-            // Don't refresh the page, which will destroy the context to test against.
-            event.preventDefault()
-          })
-        })
+        await user.click(button)
+        await user.click(button)
 
-        await page.click('button')
-        await page.click('button')
-
-        const submitCount = await page.evaluate(() => window.__SUBMIT_EVENTS)
-
-        expect(submitCount).toBe(2)
+        expect(submit).toHaveBeenCalledTimes(2)
       })
       it('does not prevent subsequent clicks on different buttons', async () => {
-        await page.goto(baseUrl + '/components/button/prevent-double-click/preview', { waitUntil: 'load' })
+        const submit = jest.fn(() => false)
+        const user = userEvent.setup()
+        const button = renderExample(examples['prevent double click'])
+        const form = encloseInForm(button)
+        const otherButton = button.cloneNode(true)
+        form.appendChild(otherButton)
 
-        // Our examples don't have form wrappers so we need to overwrite it.
-        await page.evaluate(() => {
-          const $button = document.querySelector('button')
-          const $buttonPrime = $button.cloneNode()
-          const $form = document.createElement('form')
-          $button.parentNode.appendChild($form)
-          $button.parentNode.removeChild($button)
-          $form.appendChild($button)
-          $form.appendChild($buttonPrime)
+        form.onsubmit = submit
 
-          window.__SUBMIT_EVENTS = 0
-          $form.addEventListener('submit', event => {
-            window.__SUBMIT_EVENTS++
-            // Don't refresh the page, which will destroy the context to test against.
-            event.preventDefault()
-          })
-        })
+        await user.click(button)
+        await otherButton.click(button)
 
-        await page.click('button:nth-child(1)')
-        await page.click('button:nth-child(2)')
-
-        const submitCount = await page.evaluate(() => window.__SUBMIT_EVENTS)
-
-        expect(submitCount).toBe(2)
+        expect(submit).toHaveBeenCalledTimes(2)
       })
     })
   })
 })
+
+function encloseInForm (button) {
+  const form = document.createElement('form')
+  button.parentNode.appendChild(form)
+  button.parentNode.removeChild(button)
+  form.appendChild(button)
+  return form
+}
+
+function renderExample (example = examples.default) {
+  return renderDOM('button', example, {
+    jsModules: [LBCamdenButton]
+  })
+}

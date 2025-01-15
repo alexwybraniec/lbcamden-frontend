@@ -1,0 +1,334 @@
+{% extends "src/lbcamden/template.njk" %}
+
+{% block head %}
+  {% block styles %}{% endblock %}
+{% endblock %}
+
+{% block header %}
+{% from "node_modules/govuk-frontend/dist/govuk/components/cookie-banner/macro.njk" import govukCookieBanner %}
+{% from "src/lbcamden/components/service-banner/macro.njk" import LBCamdenServiceBanner %}
+
+  {{ govukCookieBanner({
+    "messages": [
+      {
+        "headingText": "Cookies on Camden's beta site",
+        "html": "<p>We use some essential cookies to make this website work.</p><p>We'd like to set additional cookies so we can understand how you use the website and make improvements.</p>",
+        "actions": [
+          {
+            "text": "Accept analytics cookies",
+            "type": "submit",
+            "name": "cookies",
+            "value": "accept"
+          },
+          {
+            "text": "Reject analytics cookies",
+            "type": "submit",
+            "name": "cookies",
+            "value": "reject"
+          },
+          {
+            "text": "How we use cookies",
+            "href": "/cookie-preferences"
+          }
+        ]
+      }
+    ]
+  }) }}
+
+  {{ LBCamdenHeader({
+    "phaseBanner": {
+      "tag": { "text": "Beta" },
+      "html": "This is a new service – your <a class='govuk-link' href='#''>feedback</a> will help us to improve it."
+    },
+    "searchItems": [
+      {
+        "href": "#1",
+        "text": "Popular search 1"
+      },
+      {
+        "href": "#2",
+        "text": "Popular search 2"
+      },
+      {
+        "href": "#3",
+        "text": "Popular search 3"
+      }
+    ],
+    emergencyBanner: '
+        <section role="banner" class="lbcamden-emergency-banner lbcamden-emergency-banner--notable-death lbcamden-emergency-banner--homepage ">
+          <div class="govuk-width-container">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-two-thirds lbcamden-emergency-banner__content">
+                <h2 class="">His Royal Highness Henry VIII</h2>
+
+                  <p> 1491–1547</p>
+
+                  <a href="https://www.gov.uk/">
+                    Override Link Text
+                  </a>
+              </div>
+            </div>
+          </div>
+        </section>
+',
+    "navigation": [
+      {
+        "href": "#1",
+        "text": "Services",
+        "description": "This is an optional description of the services",
+        "subItems": [
+          {
+            "href": "#1-1",
+            "text": "Benefits and financial support"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Births, deaths, marriages and citizenship"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Business"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Children, families and young people"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Coronavirus (COVID-19)"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Council tax"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Crime and safety"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Education"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Environmental issues"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Housing"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Jobs and skills"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Libraries and local studies"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Parking"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Pay"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Planning and building development"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Recycling and rubbish"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Roads and travel"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Social care and health"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Sports and leisure"
+          },
+
+{
+            "href": "#1-1",
+            "text": "Your council"
+          }
+        ]
+      },
+      {
+        "href": "#1",
+        "text": "News"
+      },
+      {
+        "href": "#1",
+        "text": "Camden Account",
+        "classes": "lbcamden-header__navigation-item-link--sign-in",
+        "subItems": [
+          {
+            "href": "#1-1",
+            "text": "Resident"
+          },
+          {
+            "href": "#1-2",
+            "text": "Business"
+          }
+
+        ]
+      }
+    ],
+    "siteNavigation": {
+      "title": "Site Area",
+      "search": false,
+      "homepageUrl": "#",
+      "navigation": [
+        {
+          "href": "#",
+          "text": "Navigation item 1"
+        },
+        {
+          "href": "#",
+          "text": "Navigation item 2",
+          "subItems": [
+            {
+              "href": "#",
+              "text": "Sub-navigation item 1"
+            },
+            {
+              "href": "#",
+              "text": "Sub-navigation item 2"
+            },
+            {
+              "href": "#",
+              "text": "Sub-navigation item 3"
+            }
+          ]
+        },
+        {
+          "href": "#",
+          "text": "Navigation item 3"
+        }
+      ]
+    }
+  }) }}
+  {{ LBCamdenServiceBanner({
+      'heading': 'Council Tax and benefit forms unavailable',
+      'shortDescription': '<p>Council Tax and housing benefit application forms are unavailable this evening between 6pm and 9pm. Try again after this time.</p>'
+  }) }}
+    {{ LBCamdenServiceBanner({
+      'heading': 'Parking Suspension is not available',
+      'shortDescription': '<p>Application forms are unavailable this evening between 6pm and 9pm. Find out more here</p>'
+  }) }}
+{% endblock %}
+
+{% block bodyStart %}
+  {% block banner %}
+  {% endblock %}
+{% endblock %}
+
+{% if not mainClasses %}
+  {% set mainClasses = 'govuk-width-container' %}
+{% endif %}
+
+{% block footer %}
+  {{ LBCamdenFooter({
+    "navigation": [
+        {
+          "href": "#1",
+          "text": "Home"
+        },
+        {
+          "href": "#2",
+          "text": "Site map"
+        },
+        {
+          "href": "#3",
+          "text": "Contact Camden Council"
+        }
+    ],
+    "navigationSecondary": [
+        {
+          "href": "#4",
+          "text": "Subscribe to our e-newsletter",
+          "attributes": {
+            "data-highlighted": true
+          }
+        }
+    ],
+    "navigationUtility": [
+
+        {
+          "href": "#1",
+          "text": "Accessibility statement"
+        },
+        {
+          "href": "#2",
+          "text": "Freedom of information disclaimer"
+        },
+        {
+          "href": "#3",
+          "text": "Privacy statement & cookies"
+        },
+        {
+          "href": "#4",
+          "text": "Modern slavery statement"
+        }
+    ],
+
+    "navigationSocial": [
+        {
+          "href": "#1",
+          "text": "Navigation item 1",
+          "attributes": {
+            "data-icon": "facebook"
+          }
+        },
+        {
+          "href": "#2",
+          "text": "Navigation item 2",
+          "attributes": {
+            "data-icon": "youtube"
+          }
+        },
+        {
+          "href": "#3",
+          "text": "Navigation item 3",
+          "attributes": {
+            "data-icon": "twitter"
+          }
+        },
+        {
+          "href": "#4",
+          "text": "Navigation item 4",
+          "attributes": {
+            "data-icon": "linkedin"
+          }
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block bodyEnd %}
+{% endblock %}

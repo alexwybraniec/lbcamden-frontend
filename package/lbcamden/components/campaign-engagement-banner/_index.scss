@@ -5,11 +5,8 @@
   // Additional space on mobile to show speech bubble effect with image hidden
   --overfill: 50px;
 
-  display: -ms-flexbox;
-
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
+  flex-direction: row;
   position: relative;
   max-width: 485px;
   min-height: 260px;
@@ -24,8 +21,7 @@
     max-height: 100%;
     outline: var(--gap) solid #ffffff;
     object-fit: cover;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
+    flex-shrink: 0;
   }
 
   @include govuk-media-query("mobile-large") {
@@ -77,16 +73,12 @@
   }
 
   &__content {
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-direction: column;
-        flex-direction: column;
-    -ms-flex-pack: center;
-        justify-content: center;
+    flex-direction: column;
+    justify-content: center;
     padding-block: govuk-spacing(6);
     position: relative;
-    -ms-flex-positive: 1;
-        flex-grow: 1;
+    flex-grow: 1;
 
     @include govuk-media-query("mobile-large") {
       padding-block: govuk-spacing(4);

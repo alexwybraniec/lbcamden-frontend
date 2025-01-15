@@ -1,42 +1,68 @@
-/* eslint-env jest */
+import { describe, expect, it, beforeEach } from 'vitest'
+import { configureAxe } from "vitest-axe";
+const axe = configureAxe({
+  rules: {
+    'skip-link': { enabled: false },
+    region: { enabled: false }
+  }
+})
 
-const { devices } = require('puppeteer')
-const iPhone = devices['iPhone 6']
-const configPaths = require('../../../../config/paths.json')
-const PORT = configPaths.ports.test
+const { getExamples, renderDOM, setViewportWidth } = require('../../../../lib/jest-helpers')
+// const LBCamdenHeader = require('./header').default
+// const LBCamdenButton = require('../button/button').default
+import LBCamdenHeader from './header'
+import LBCamdenButton from '../button/button'
 
-const baseUrl = 'http://localhost:' + PORT
+const userEvent = require('@testing-library/user-event').default
+
+const examples = getExamples('header')
+
+beforeEach(() => {
+  window.sessionStorage.clear()
+  window.location.hash = ''
+
+  for (const child of document.body.children) {
+    child.remove()
+  }
+})
 
 describe('/components/header', () => {
   describe('/components/header/preview', () => {
     describe('when JavaScript is available', () => {
-      afterEach(async () => {
-        await page.evaluate(() => window.sessionStorage.clear())
+      const setup = (example = examples.default) => renderDOM('header', example, {
+        jsModules: [LBCamdenHeader, LBCamdenButton]
       })
 
       describe('on desktop devices', () => {
+        beforeEach(() => setViewportWidth(1024))
+
         describe('the navigation function', () => {
           it('the menu toggle button should be hidden', async () => {
-            await page.goto(baseUrl + '/components/header/preview', { waitUntil: 'load' })
-            const target = await page.evaluate(() => document.querySelector('button[aria-controls="super-navigation-menu"]').hasAttribute('hidden'))
-            expect(target).toEqual(true)
-          }, 10000)
+            const target = setup().querySelector('button[aria-controls="super-navigation-menu"]')
+            expect(target.hidden).toEqual(true)
+          })
         })
       })
+
       describe('on all devices', () => {
         describe('the search function', () => {
           it('clicking search button should give self \'open\' class', async () => {
-            await page.goto(baseUrl + '/components/header/preview', { waitUntil: 'load' })
-            const initialState = await page.evaluate(() => document.body.querySelector('button[aria-controls="super-search-menu"]').classList.contains('lbcamden-header__open-button'))
-            await page.click('button[aria-controls="super-search-menu"]')
-            const newState = await page.evaluate(() => document.body.querySelector('button[aria-controls="super-search-menu"]').classList.contains('lbcamden-header__open-button'))
+            const target = setup()
+            const user = userEvent.setup()
+
+            const searchButton = target.querySelector('button[aria-controls="super-search-menu"]')
+            const initialState = searchButton.classList.contains('lbcamden-header__open-button')
+
+            await user.click(searchButton)
+            const newState = searchButton.classList.contains('lbcamden-header__open-button')
+
             expect(initialState).toBe(false)
             expect(newState).toBe(true)
-          })
+          }, 60000)
           //
           // it('clicking search button should move focus to search input', async () => {
           //   await page.emulate(iPhone)
-          //   await page.goto(baseUrl + '/components/header/preview', { waitUntil: 'load' })
+          //   await page.goto(getComponentStoryUrl('header'), { waitUntil: 'load' })
           //
           //   const initialState = await page.evaluateHandle(() => document.activeElement)
           //   await page.click('button[aria-controls="super-search-menu"]')
@@ -46,9 +72,8 @@ describe('/components/header', () => {
           // })
 
           it('the search container should be hidden', async () => {
-            await page.goto(baseUrl + '/components/header/preview', { waitUntil: 'load' })
-            const target = await page.evaluate(() => document.getElementById('super-search-menu').hasAttribute('hidden'))
-            expect(target).toEqual(true)
+            const target = setup().querySelector('#super-search-menu')
+            expect(target.hasAttribute('hidden')).toEqual(true)
           })
         })
         //
@@ -58,96 +83,105 @@ describe('/components/header', () => {
       })
 
       describe('on mobile devices', () => {
+        beforeEach(() => setViewportWidth(320))
+
         // describe('the search function', () => {
         //
         // })
         describe('the mobile nav function', () => {
           it('the menu container should be hidden', async () => {
-            await page.goto(baseUrl + '/components/header/preview', { waitUntil: 'load' })
-            const target = await page.evaluate(() => document.getElementById('super-search-menu').hasAttribute('hidden'))
-            expect(target).toEqual(true)
+            const target = setup().querySelector('#super-search-menu')
+            expect(target.hasAttribute('hidden')).toEqual(true)
           })
 
           it('the menu toggle button should not be hidden', async () => {
-            await page.emulate(iPhone)
-            await page.goto(baseUrl + '/components/header/preview', { waitUntil: 'load' })
-            const target = await page.evaluate(() => document.querySelector('button[aria-controls="super-navigation-menu"]').hasAttribute('hidden'))
-            expect(target).toEqual(false)
+            const target = setup().querySelector('button[aria-controls="super-navigation-menu"]')
+            expect(target.hasAttribute('hidden')).toEqual(false)
           })
 
           it('the menu toggle button should have aria-expanded value of false', async () => {
-            await page.emulate(iPhone)
-            await page.goto(baseUrl + '/components/header/preview', { waitUntil: 'load' })
-            const target = await page.evaluate(() => document.querySelector('button[aria-controls="super-navigation-menu"]').getAttribute('aria-expanded'))
-            expect(target).toBe('false')
+            const target = setup().querySelector('button[aria-controls="super-navigation-menu"]')
+            expect(target.getAttribute('aria-expanded')).toBe('false')
           })
 
           it('the menu toggle button should expose navigation options when clicked', async () => {
-            await page.emulate(iPhone)
-            await page.goto(baseUrl + '/components/header/preview', { waitUntil: 'load' })
-            const initialState = await page.evaluate(() => document.getElementById('super-navigation-menu').getAttribute('hidden'))
-            await page.click('button[aria-controls="super-navigation-menu"]')
-            const newState = await page.evaluate(() => document.getElementById('super-navigation-menu').getAttribute('hidden'))
-            expect(initialState).toBe('true')
-            expect(newState).not.toBe('true')
+            const user = userEvent.setup()
+            const target = setup()
+            const menu = target.querySelector('#super-navigation-menu')
+            const initialState = menu.hidden
+
+            await user.click(target.querySelector('button[aria-controls="super-navigation-menu"]'))
+            const newState = menu.hidden
+
+            expect(initialState).toEqual(true)
+            expect(newState).toEqual(false)
           })
         })
       })
     })
     describe('when JavaScript is not available', () => {
-      beforeAll(async () => {
-        await page.setJavaScriptEnabled(false)
-      })
-
-      afterEach(async () => {
-        await page.evaluate(() => window.sessionStorage.clear())
+      const setup = (example = examples.default) => renderDOM('header', example, {
+        jsEnabled: false
       })
 
       describe('the menu items', () => {
         it('clicking menu link should change the window location (mobile)', async () => {
-          await page.emulate(iPhone)
-          await page.goto(baseUrl + '/components/header/preview', { waitUntil: 'load' })
+          setViewportWidth(320)
 
-          const initialState = await page.evaluate(() => window.location.href)
-          await page.click('.lbcamden-header__navigation-item-link')
-          const newState = await page.evaluate(() => window.location.href)
-          expect(initialState).not.toEqual(newState)
+          const target = setup()
+          const user = userEvent.setup()
+          const link = target.querySelector('.lbcamden-header__navigation-item-link')
+
+          const initialState = window.location.href
+          await user.click(link)
+
+          expect(initialState).not.toEqual(window.location.href)
         })
 
         it('clicking menu link should change the window location (desktop)', async () => {
-          await page.goto(baseUrl + '/components/header/preview', { waitUntil: 'load' })
+          setViewportWidth(1024)
 
-          const initialState = await page.evaluate(() => window.location.href)
-          await page.click('.lbcamden-header__navigation-item-link')
-          const newState = await page.evaluate(() => window.location.href)
-          expect(initialState).not.toEqual(newState)
+          const target = setup()
+          const user = userEvent.setup()
+          const link = target.querySelector('.lbcamden-header__navigation-item-link')
+
+          const initialState = window.location.href
+          await user.click(link)
+
+          expect(initialState).not.toEqual(window.location.href)
         })
       })
 
       describe('the search function', () => {
         it('clicking search link should change the window location (mobile)', async () => {
-          await page.emulate(iPhone)
-          await page.goto(baseUrl + '/components/header/preview', { waitUntil: 'load' })
+          setViewportWidth(320)
+          const target = setup()
+          const user = userEvent.setup()
+          const link = target.querySelector('.lbcamden-header__search-item-link')
+          link.href = '#search'
 
-          const initialState = await page.evaluate(() => window.location.href)
-          await page.click('.lbcamden-header__search-item-link')
-          const newState = await page.evaluate(() => window.location.href)
-          expect(initialState).not.toEqual(newState)
+          const initialState = window.location.href
+          await user.click(link)
+
+          expect(initialState).not.toEqual(window.location.href)
         })
 
         it('clicking search link should change the window location (desktop)', async () => {
-          await page.goto(baseUrl + '/components/header/preview', { waitUntil: 'load' })
+          setViewportWidth(1024)
+          const target = setup()
+          const user = userEvent.setup()
+          const link = target.querySelector('.lbcamden-header__search-item-link')
+          link.href = '#search'
 
-          const initialState = await page.evaluate(() => window.location.href)
-          await page.click('.lbcamden-header__search-item-link')
-          const newState = await page.evaluate(() => window.location.href)
-          expect(initialState).not.toEqual(newState)
+          const initialState = window.location.href
+          await user.click(link)
+
+          expect(initialState).not.toEqual(window.location.href)
         })
 
         it('the search container should not be hidden', async () => {
-          await page.goto(baseUrl + '/components/header/preview', { waitUntil: 'load' })
-          const target = await page.evaluate(() => document.getElementById('super-search-menu').hasAttribute('hidden'))
-          expect(target).toEqual(false)
+          const target = setup()
+          expect(target.querySelector('#super-search-menu').hasAttribute('hidden')).toEqual(false)
         })
       })
     })

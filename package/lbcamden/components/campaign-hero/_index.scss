@@ -5,11 +5,8 @@
   // Additional space on mobile to show speech bubble effect with image hidden
   --overfill: 20px;
 
-  display: -ms-flexbox;
-
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
+  flex-direction: row;
   position: relative;
   max-width: 485px;
   margin-top: govuk-spacing(2);
@@ -28,8 +25,7 @@
     border-bottom-left-radius: 50px;
     outline: var(--gap) solid #ffffff;
     object-fit: cover;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
+    flex-shrink: 0;
   }
 
   @include govuk-media-query($from: tablet) {
@@ -66,12 +62,9 @@
 
   &__content {
     box-sizing: border-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-direction: column;
-        flex-direction: column;
-    -ms-flex-pack: center;
-        justify-content: center;
+    flex-direction: column;
+    justify-content: center;
     padding-block: govuk-spacing(6);
     position: relative;
 

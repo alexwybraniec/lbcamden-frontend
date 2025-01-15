@@ -95,8 +95,7 @@
     &__navigation-top-toggle-button-inner,
     &__navigation-second-toggle-button {
       &:before {
-        -ms-transform: translateY(5%) rotate(180deg) scale(1);
-            transform: translateY(5%) rotate(180deg) scale(1);
+        transform: translateY(5%) rotate(180deg) scale(1);
       }
 
       &:focus {
@@ -119,8 +118,7 @@
       width: 8px;
       height: 8px;
       margin: 0 8px 0 2px;
-      -ms-transform: translateY(-35%) rotate(45deg) scale(1);
-          transform: translateY(-35%) rotate(45deg) scale(1);
+      transform: translateY(-35%) rotate(45deg) scale(1);
       border-right: 2px solid $govuk-brand-colour;
       border-bottom: 2px solid $govuk-brand-colour;
       vertical-align: middle;

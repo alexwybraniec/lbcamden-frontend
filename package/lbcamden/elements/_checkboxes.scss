@@ -8,8 +8,7 @@
           left: 8px;
           width: $dimension;
           height: $dimension;
-          -ms-transform: none;
-              transform: none;
+          transform: none;
           border: none;
           @include background-svg("<svg width='27' height='22' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='m3.01 11.263-.01.032 8.239 6.913L24 3' stroke='" + lbcamden-colour("black") + "' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/></svg>");
           background-repeat: no-repeat;
@@ -29,8 +28,7 @@
             left: 5px;
             width: $dimension;
             height: $dimension;
-            -ms-transform: none;
-                transform: none;
+            transform: none;
             border: none;
             @include background-svg("<svg width='27' height='22' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='m3.01 11.263-.01.032 8.239 6.913L24 3' stroke='" + lbcamden-colour("black") + "' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/></svg>");
             background-repeat: no-repeat;

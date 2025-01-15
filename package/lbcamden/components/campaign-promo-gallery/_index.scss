@@ -19,13 +19,9 @@
     @include govuk-responsive-padding(3, "left");
     @include govuk-responsive-padding(3, "right");
 
-    display: -ms-flexbox;
-
     display: flex;
-    -ms-flex-direction: row;
-        flex-direction: row;
-    -ms-flex-align: center;
-        align-items: center;
+    flex-direction: row;
+    align-items: center;
     background-color: lbcamden-color(govuk-bg-bright1-colour);
 
     img {
@@ -54,7 +50,6 @@
   }
 
   &__label {
-    -ms-flex-positive: 1;
-        flex-grow: 1;
+    flex-grow: 1;
   }
 }

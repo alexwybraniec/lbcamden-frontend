@@ -2,23 +2,20 @@
   .govuk-details__summary {
     &:before {
       @include lbcamden-chevron(lbcamden-colour("blue"), 0, 3, 3);
-      -webkit-clip-path: none;
-              clip-path: none;
+      clip-path: none;
     }
 
     &:hover {
       &:before {
         @include lbcamden-chevron(lbcamden-colour("dark-blue"), 0, 3, 3);
-        -webkit-clip-path: none;
-                clip-path: none;
+        clip-path: none;
       }
     }
 
     &:focus {
       &:before {
         @include lbcamden-chevron(lbcamden-colour("black"), 0, 3, 3);
-        -webkit-clip-path: none;
-                clip-path: none;
+        clip-path: none;
       }
     }
   }
@@ -27,23 +24,20 @@
     .govuk-details__summary {
       &:before {
         @include lbcamden-chevron(lbcamden-colour("blue"), 90, 3, 3);
-        -webkit-clip-path: none;
-                clip-path: none;
+        clip-path: none;
       }
 
       &:hover {
         &:before {
           @include lbcamden-chevron(lbcamden-colour("dark-blue"), 90, 3, 3);
-          -webkit-clip-path: none;
-                  clip-path: none;
+          clip-path: none;
         }
       }
 
       &:focus {
         &:before {
           @include lbcamden-chevron(lbcamden-colour("black"), 90, 3, 3);
-          -webkit-clip-path: none;
-                  clip-path: none;
+          clip-path: none;
         }
       }
     }

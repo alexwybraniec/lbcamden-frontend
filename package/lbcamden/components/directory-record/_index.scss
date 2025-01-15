@@ -15,8 +15,7 @@
   }
 
   dd {
-    -webkit-margin-start: 0;
-            margin-inline-start: 0;
+    margin-inline-start: 0;
     @include govuk-responsive-margin(3, "bottom");
   }
 }

@@ -12,13 +12,9 @@
     @include govuk-responsive-padding(6, "right");
   }
 
-  display: -ms-flexbox;
-
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin-bottom: 0;
 
   li {

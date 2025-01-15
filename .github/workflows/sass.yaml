@@ -17,8 +17,8 @@ jobs:
         with:
           node-version-file: '.nvmrc'
       - run: |
-          npm install govuk-frontend@v4.7.0
-          npm install -g sass@v1.52.3
+          npm install govuk-frontend@v5.7.1
+          npm install -g sass@v1.83.1
           sass --version
       # Treat CAMDEN.GOV.UK Frontend as a dependency by importing it via load paths,
       # allowing us to mimic the way we recommend our users silence deprecation

@@ -266,18 +266,14 @@
   list-style: none;
 
   @include govuk-media-query($from: desktop) {
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-direction: row;
-        flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
     @include govuk-responsive-padding(6, "top");
 
     li {
-      -ms-flex: 0 0 50%;
-          flex: 0 0 50%;
+      flex: 0 0 50%;
     }
   }
 
@@ -289,8 +285,7 @@
 
   &.lbcamden-header__navigation-second-items--full {
     li {
-      -ms-flex: 0 0 33%;
-          flex: 0 0 33%;
+      flex: 0 0 33%;
     }
   }
 }

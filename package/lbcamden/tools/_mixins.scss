@@ -75,9 +75,7 @@
     height: $size * 4 + px;
   }
 
-  -ms-transform: rotate($rotation + deg);
-
-      transform: rotate($rotation + deg);
+  transform: rotate($rotation + deg);
   border: none;
   background: chevron-stroke-width($stroke, $colour);
   background-repeat: no-repeat;

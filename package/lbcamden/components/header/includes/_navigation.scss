@@ -1,14 +1,10 @@
 &__content {
-  -ms-flex: 1 0 100%;
-      flex: 1 0 100%;
+  flex: 1 0 100%;
   background: lbcamden-colour("govuk-bg-bright2-colour");
   @include govuk-media-query($from: desktop) {
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex: 0 0 70%;
-        flex: 0 0 70%;
-    -ms-flex-pack: end;
-        justify-content: flex-end;
+    flex: 0 0 70%;
+    justify-content: flex-end;
     background: none;
   }
 

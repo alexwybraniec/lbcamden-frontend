@@ -1,11 +1,9 @@
 .lbcamden-search {
-  display: -ms-flexbox;
   display: flex;
 
   &__input {
     @extend .govuk-input;
-    -webkit-appearance: none;
-            appearance: none;
+    appearance: none;
     height: initial;
     border-right-width: 0;
     @include govuk-media-query($from: desktop) {

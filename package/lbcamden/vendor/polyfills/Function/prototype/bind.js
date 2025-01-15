@@ -1,14 +1,9 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory() :
-	typeof define === 'function' && define.amd ? define('LBCamdenFrontend', factory) :
+	typeof define === 'function' && define.amd ? define('GOVUKFrontend', factory) :
 	(factory());
 }(this, (function () { 'use strict';
 
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory() :
-	typeof define === 'function' && define.amd ? define('GOVUKFrontend', factory) :
-	(factory());
-}(undefined, (function () {
 	// @ts-nocheck
 	(function (undefined) {
 
@@ -258,5 +253,4 @@
 	.call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
 
 })));
-
-})));
+//# sourceMappingURL=bind.js.map

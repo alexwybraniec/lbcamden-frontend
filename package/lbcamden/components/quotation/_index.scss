@@ -1,14 +1,11 @@
 .lbcamden-quotation {
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
+  flex-direction: column;
   @include govuk-responsive-padding(5, "top");
   @include govuk-responsive-padding(5, "bottom");
 
   @include govuk-media-query($from: "tablet") {
-    -ms-flex-direction: row;
-        flex-direction: row;
+    flex-direction: row;
     @include govuk-responsive-margin(5);
   }
 
@@ -18,11 +15,8 @@
       padding-right: govuk-spacing(5);
     }
 
-    -ms-flex-negative: 0;
-
-        flex-shrink: 0;
-    -ms-flex-item-align: start;
-        align-self: flex-start;
+    flex-shrink: 0;
+    align-self: flex-start;
     height: 48px;
     margin-bottom: govuk-spacing(5);
   }

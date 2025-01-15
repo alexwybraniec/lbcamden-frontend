@@ -1,0 +1,279 @@
+---
+scenario: You want to change your name by deed poll
+notes:
+---
+{% extends "examples/layouts/full-page-example.njk" %}
+{% set mainClasses = 'govuk-width-container' %}
+
+{% from "src/lbcamden/components/engagement-banner/macro.njk" import LBCamdenEngagementBanner %}
+{% from "src/lbcamden/components/promo-gallery/macro.njk" import LBCamdenPromoGallery %}
+{% from "src/lbcamden/components/card-gallery/macro.njk" import LBCamdenCardGallery %}
+{% from "src/lbcamden/components/hero/macro.njk" import LBCamdenHero %}
+
+
+{% block styles %}
+  <style>
+    body {
+      background-color: #F6F6F6 !important;
+      overflow-x: hidden;
+    }
+
+    .govuk-main-wrapper {
+      padding-top: 0;
+    }
+  </style>
+{% endblock %}
+
+{% set pageTitle = "Home" %}
+{% block pageTitle %}{{ pageTitle }} - CAMDEN.GOV.UK{% endblock %}
+
+{% block content %}
+
+{{ LBCamdenHero({
+  welcomeMessage: "Welcome to Camden.gov.uk",
+  image: {
+    src: "/example-assets/images/hero.jpg"
+  },
+  linkHeading: "Popular tasks",
+  links: [
+    {
+      "label": "Get a resident permit parking",
+      "href": "/full-page-examples/article"
+    },
+    {
+      "label": "Search for a planning application",
+      "href": "/full-page-examples/article"
+    },
+    {
+      "label": "Book a housing repair",
+      "href": "/full-page-examples/article"
+    },
+    {
+      "label": "Search for a business license",
+      "href": "/full-page-examples/article"
+    },
+    {
+      "label": "Get Council Tax support",
+      "href": "/full-page-examples/article"
+    },
+    {
+      "label": "Find a job at Camden",
+      "href": "/full-page-examples/article"
+    }
+  ]
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {{ LBCamdenPromoGallery({
+      "heading": "Popular",
+      "showAllHref": "#",
+      "showAllLabel": "All services",
+      "classes": "govuk-!-margin-bottom-9",
+      "panel": true,
+      "items": [
+        {
+          "title": "Housing Repairs",
+          "href": "/full-page-examples/category-page"
+        },
+        {
+          "title": "Leaseholder and Freeholders",
+          "href": "/full-page-examples/category-page"
+        },
+        {
+          "title": "Bid for a property",
+          "href": "/full-page-examples/category-page"
+        },
+        {
+          "title": "Apply for council housing",
+          "href": "/full-page-examples/category-page"
+        }
+      ]
+    }) }}
+  </div>
+</div>
+
+
+{{ LBCamdenCardGallery({
+  "heading": "Get more from Camden",
+  "shortDescription": "Find relevant services, support and things to do.",
+  "classes": "govuk-!-margin-bottom-9",
+  "cardType": "alt-1",
+  "items": [
+    {
+      "title": "Starting school",
+      "href": "#1",
+      "image": {
+        "src": "/example-assets/images/1200x800.webp",
+        "alt": "Image alt text"
+      },
+      "shortDescription": "Get help and support for you and your child, apply for a new school place, find term dates and school travel."
+    },
+    {
+      "title": "Moving into Camden",
+      "href": "#2",
+      "image": {
+        "src": "/example-assets/images/1200x800.webp",
+        "alt": "Image alt text"
+      },
+      "shortDescription": "Check off what you need to do when you move into Camden, and what to do if you need support."
+    },
+    {
+      "title": "Making the most of Summer",
+      "href": "#3",
+      "image": {
+        "src": "/example-assets/images/1200x800.webp",
+        "alt": "Image alt text"
+      },
+      "shortDescription": "Find out what’s happening in Camden, host a street party, or get support over the summer holidays."
+    },
+    {
+      "title": "Starting school",
+      "href": "#4",
+      "image": {
+        "src": "/example-assets/images/1200x800.webp",
+        "alt": "Image alt text"
+      },
+      "shortDescription": "Get help and support for you and your child, apply for a new school place, find term dates and school travel."
+    }
+  ]
+}) }}
+
+{{ LBCamdenCardGallery({
+  "heading": "Get more from Camden",
+  "shortDescription": "Find relevant services, support and things to do.",
+  "classes": "govuk-!-margin-bottom-9",
+  "surround": true,
+  "cardType": "alt-1",
+  "items": [
+    {
+      "title": "Starting school",
+      "href": "#1",
+      "image": {
+        "src": "/example-assets/images/1200x800.webp",
+        "alt": "Image alt text"
+      },
+      "shortDescription": "Get help and support for you and your child, apply for a new school place, find term dates and school travel."
+    },
+    {
+      "title": "Moving into Camden",
+      "href": "#2",
+      "image": {
+        "src": "/example-assets/images/1200x800.webp",
+        "alt": "Image alt text"
+      },
+      "shortDescription": "Check off what you need to do when you move into Camden, and what to do if you need support."
+    },
+    {
+      "title": "Making the most of Summer",
+      "href": "#3",
+      "image": {
+        "src": "/example-assets/images/1200x800.webp",
+        "alt": "Image alt text"
+      },
+      "shortDescription": "Find out what’s happening in Camden, host a street party, or get support over the summer holidays."
+    },
+    {
+      "title": "Starting school",
+      "href": "#4",
+      "image": {
+        "src": "/example-assets/images/1200x800.webp",
+        "alt": "Image alt text"
+      },
+      "shortDescription": "Get help and support for you and your child, apply for a new school place, find term dates and school travel."
+    }
+  ]
+}) }}
+
+
+{{ LBCamdenEngagementBanner({
+  "image": {
+    "src": "/example-assets/images/1200x800.webp",
+    "alt": "Image alt text"
+  },
+  "heading": "News",
+  "shortDescription": "<p>Find out what’s going on in our community with all the latest news stories, announcements, and events.</p>",
+  "classes": "govuk-!-margin-bottom-9",
+  "link": "#",
+  "linkText": "All news"
+}) }}
+
+{% endblock %}
+
+{% block footer %}
+  {{ LBCamdenFooter({
+    "navigation": [
+        {
+          "href": "#1",
+          "text": "Home"
+        },
+        {
+          "href": "#2",
+          "text": "Site map"
+        },
+        {
+          "href": "#3",
+          "text": "Contact Camden Council"
+        }
+    ],
+    "navigationSecondary": [
+        {
+          "href": "#4",
+          "text": "Subscribe to our e-newsletter",
+          "attributes": {
+            "data-highlighted": true
+          }
+        }
+    ],
+    "navigationUtility": [
+
+        {
+          "href": "#1",
+          "text": "Accessibility statement"
+        },
+        {
+          "href": "#2",
+          "text": "Freedom of information disclaimer"
+        },
+        {
+          "href": "#3",
+          "text": "Privacy statement & cookies"
+        },
+        {
+          "href": "#4",
+          "text": "Modern slavery statement"
+        }
+    ],
+
+    "navigationSocial": [
+        {
+          "href": "#1",
+          "text": "Navigation item 1",
+          "attributes": {
+            "data-icon": "facebook"
+          }
+        },
+        {
+          "href": "#2",
+          "text": "Navigation item 2",
+          "attributes": {
+            "data-icon": "youtube"
+          }
+        },
+        {
+          "href": "#3",
+          "text": "Navigation item 3",
+          "attributes": {
+            "data-icon": "twitter"
+          }
+        },
+        {
+          "href": "#4",
+          "text": "Navigation item 4",
+          "attributes": {
+            "data-icon": "linkedin"
+          }
+      }
+    ]
+  }) }}
+{% endblock %}

@@ -1,14 +1,11 @@
 .lbcamden-engagement-banner {
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
+  flex-direction: column;
   position: relative;
   background-color: lbcamden-colour("white");
 
   @include govuk-media-query($from: "desktop") {
-    -ms-flex-direction: row;
-        flex-direction: row;
+    flex-direction: row;
   }
 
   @include govuk-media-query($until: "desktop") {
@@ -29,8 +26,7 @@
     width: 100%;
     aspect-ratio: 3 / 2;
     object-fit: cover;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
+    flex-shrink: 0;
 
     @include govuk-media-query($from: "desktop") {
       width: calc(100% / 12 * 5);

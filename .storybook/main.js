@@ -1,67 +1,74 @@
-/** @type { import('@storybook/html-webpack5').StorybookConfig } */
+import govukStorybook from "storybook-addon-govuk-fixtures";
+
+/** @type { import('@storybook/html-vite').StorybookConfig } */
 const config = {
-  features: {
-    storyStoreV7: false,
-  },
-  stories: ["./stories.js"],
   addons: [
+    govukStorybook({
+      fixtures: [
+        {
+          storyNamespace: "components/govuk",
+          searchPath: "node_modules/govuk-frontend/dist",
+          nunjucksPrefix: 'govuk'
+        },
+        {
+          storyNamespace: "components/govuk",
+          searchPath: "src/govuk",
+          nunjucksPrefix: 'govuk',
+          type: "yaml",
+          resolveTemplate: name => `node_modules/govuk-frontend/dist/govuk/components/${name}/template.njk`
+        },
+        {
+          storyNamespace: "components/lbcamden",
+          searchPath: "src/lbcamden",
+          type: "yaml",
+          nunjucksPrefix: 'LBCamden'
+        },
+      ],
+      standaloneExamples: [
+        {
+          searchPath: "examples/patterns",
+          storyNamespace: 'patterns',
+        },
+        {
+          searchPath: "examples/full-page-examples",
+          storyNamespace: 'full-page-examples',
+        }
+      ],
+      additionalTemplatePaths: ["examples"],
+    }),
     "@storybook/addon-links",
     "@storybook/addon-essentials",
+    "@chromatic-com/storybook",
     "@storybook/addon-interactions",
+    '@storybook/addon-storysource'
   ],
   framework: {
-    name: "@storybook/html-webpack5",
+    name: "@storybook/html-vite",
     options: {},
-  },
-  docs: {
-    autodocs: "tag",
   },
   staticDirs: [
     {
-      from: '../src/lbcamden/assets',
-      to: '/assets'
+      to: "/assets",
+      from: "../src/lbcamden/assets"
     },
     {
-      from: '../src/lbcamden/example-assets',
-      to: '/example-assets'
+      to: "/example-assets",
+      from: "../src/lbcamden/example-assets"
     },
-    {
-      from: '../dist',
-      to: '/dist'
-    }
   ],
-  "webpackFinal": (config) => {
-    config.module.rules.push({
-        test: /\.njk$/,
-        use: [
-            {
-                loader: require.resolve('./njk-loader.js'),
-            }
-        ]
+  async viteFinal(config) {
+    // Merge custom configuration into the default config
+    const { mergeConfig } = await import('vite');
+ 
+    return mergeConfig(config, {
+      css: {
+        preprocessorOptions: {
+          scss: {
+            api: 'legacy'
+          }
+        }
+      }
     });
-
-    config.module.rules.push({
-      test: /\.scss/,
-      use: ["style-loader", { loader: "css-loader", options: { url: false } }, "sass-loader"],
-    })
-
-    config.resolve = {
-      ...config.resolve,
-      alias: {
-        ...config.resolve?.alias,
-        path: 'path-webpack'
-      }
-    }
-
-    config.module.rules.push(
-      {
-        test: /\.ya?ml$/,
-        use: 'yaml-loader',
-      }
-    )
-
-    // Return the altered config
-    return config;
-  }
+  },
 };
 export default config;
